@@ -1,5 +1,7 @@
 <template>
-  <div v-editable="blok" class="teaser">{{ blok.headline }}</div>
+  <div v-editable="blok">
+    <markdown-item :input="blok.text" />
+  </div>
 </template>
 
 <script>
