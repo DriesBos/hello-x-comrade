@@ -1,20 +1,35 @@
+body
+  background: black
+
+body, #__nuxt, #__layout
+  min-height: 100vh
+
 section
   max-width: 100%
   img
     max-width: 100%
 
 header
-  position: fixed
-  top: 0
-  left: 0
+  // border: 1px solid red
+  position: relative
   width: 100%
-  ul
-    display: flex
-    justify-content: flex-end
-    li
-      padding: 1em .5em
-      cursor: pointer
-    li:last-child
-      padding-right: 1em
-  .nuxt-link-exact-active
-    text-decoration: underline
+  display: flex
+  justify-content: space-between
+  align-items: center
+  nav
+    margin-left: var(--spacing-two)
+    margin-right: var(--spacing-two)
+    ul
+      li
+        padding: 1em .5em
+        cursor: pointer
+        display: inline-block
+      li:last-child
+        padding-right: 1em
+    .nuxt-link-exact-active
+      text-decoration: underline
+  .logo
+    // border: 1px solid blue
+    height: 100%
+    width: 200px
+    margin-right: var(--spacing-two)
