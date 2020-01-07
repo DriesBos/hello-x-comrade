@@ -33,6 +33,7 @@
     "eslint-loader": "^3.0.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-vue": "^6.0.1",
+    "imagemin": "^7.0.1",
     "imagemin-gifsicle": "^6.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-pngquant": "^8.0.0",
@@ -42,6 +43,7 @@
     "nodemon": "^1.18.9",
     "prettier": "^1.19.1",
     "responsive-loader": "^1.2.0",
+    "sass": "^1.24.2",
     "sass-loader": "^8.0.0",
     "sqip-loader": "^1.0.0",
     "webp-loader": "^0.6.0"
