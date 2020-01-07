@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <section class="content-worksingle">
-      <p>work single</p>
+      <p>{{ story.name }}</p>
     </section>
   </div>
 </template>
@@ -12,8 +12,10 @@ import storyblokLivePreview from "@/mixins/storyblokLivePreview"
 export default {
   mixins: [storyblokLivePreview],
   asyncData(context) {
+    let endpoint = `cdn/stories/work/${context.params.slug}`
+
     return context.app.$storyapi
-      .get(`cdn/stories/`, {
+      .get(endpoint, {
         version: "draft"
       })
       .then(res => {
@@ -41,7 +43,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.story.content)
+    console.log("STORY", this.story)
   }
 }
 </script>
