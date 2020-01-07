@@ -37,3 +37,71 @@ section
   margin-left: var(--spacing-three)
   margin-right: var(--spacing-three)
   margin-bottom: var(--spacing-two)
+
+form
+  margin-top: var(--spacing-one)
+  input[type="text"], 
+  input[type="submit"],
+  textarea
+    font-size: 3em
+  input
+    width: 100%
+  input::placeholder
+    color: white
+  input[type="text"]
+    border-bottom: 1px solid white
+  .button-send
+    display: flex
+    justify-content: flex-end
+    align-items: center
+    margin-top: var(--spacing-two)
+    input, div
+      display: inline
+      cursor: pointer
+    input
+      padding-right: var(--spacing-three)
+    div
+      height:
+
+.content
+  &-page
+    .markdown
+      p
+        font-size: 3em
+  &-about
+    .blok
+      p
+        margin-bottom: var(--spacing-two)
+      h1
+        padding-bottom: var(--spacing-one)
+        margin-bottom: var(--spacing-one)
+        border-bottom: 1px solid white
+    .blok-one
+      font-size: 2em
+    .second
+      display: flex
+      > div
+        // border: 1px solid green
+        flex-basis: 50%
+        &:first-child
+          margin-right: 1em
+        &:nth-child(2)
+          margin-left: 1em
+  &-synchronize
+    ul
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      li
+        // border: 1px solid blue
+        display: flex
+        justify-content: space-between
+        align-items: flex-end
+        &:first-child
+          margin-bottom: var(--spacing-two)
+        p
+          display: inline
+  &-contact
+    .markdown
+      p
+        max-width: 36em

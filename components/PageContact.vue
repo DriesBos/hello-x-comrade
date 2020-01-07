@@ -1,11 +1,14 @@
 <template>
-  <section v-editable="blok">
+  <section v-editable="blok" class="content-contact">
     <markdown-item :input="blok.text" />
     <form>
       <input type="text" placeholder="name" />
       <input type="text" placeholder="email" />
       <input type="text" placeholder="message" />
-      <input type="submit" value="Send" />
+      <div class="button-send">
+        <input type="submit" value="Send" />
+        <div v-html="require('~/assets/images/arrow-right.svg?include')" />
+      </div>
     </form>
   </section>
 </template>

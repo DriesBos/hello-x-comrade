@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok">
+  <section v-editable="blok" class="content-page">
     <component
       :key="blok._uid"
       v-for="blok in blok.body"
