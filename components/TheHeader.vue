@@ -2,6 +2,7 @@
   <header>
     <nav>
       <ul>
+        <nuxt-link to="/work" tag="li">Work</nuxt-link>
         <nuxt-link to="/about" tag="li">About</nuxt-link>
         <nuxt-link to="/services" tag="li">Services</nuxt-link>
         <nuxt-link to="/synchronize" tag="li">Synchronize</nuxt-link>

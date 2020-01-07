@@ -1,5 +1,4 @@
 const pkg = require("./package")
-require("dotenv").config()
 
 module.exports = {
   mode: "universal",
@@ -44,7 +43,6 @@ module.exports = {
    */
   modules: [
     ["@nuxtjs/pwa"],
-    // ["@nuxtjs/google-tag-manager", { id: process.env.GOOGLE_GTM }],
     [
       "@bazzite/nuxt-optimized-images",
       { optimizedImages: { optimizeImagesInDev: true } } // Test compression by setting to true first
@@ -55,8 +53,7 @@ module.exports = {
         accessToken: "3CCLS9Gg74PIgd2W9VcMDwtt",
         cacheProvider: "memory"
       }
-    ],
-    ["@nuxtjs/dotenv"]
+    ]
   ],
   /*
    ** Build configuration
