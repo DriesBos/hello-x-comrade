@@ -1,12 +1,12 @@
 <template>
-  <div v-editable="blok">
+  <section v-editable="blok">
     <component
       :key="blok._uid"
       v-for="blok in blok.body"
       :blok="blok"
       :is="blok.component | dashify"
     ></component>
-  </div>
+  </section>
 </template>
 
 <script>

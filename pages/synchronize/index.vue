@@ -1,9 +1,11 @@
 <template>
-  <div>
-    <p>{{ timeAMS }}</p>
-    <p>/CEST (Amsterdam)</p>
-    <p>{{ timeNY }}</p>
-    <p>/EST (New York)</p>
+  <div class="content">
+    <section>
+      <time>{{ timeAMS }}</time>
+      <p>/CEST (Amsterdam)</p>
+      <time>{{ timeNY }}</time>
+      <p>/EST (New York)</p>
+    </section>
   </div>
 </template>
 

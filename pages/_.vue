@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="content">
     <component
       v-if="story.content.component"
       :key="story.content._uid"

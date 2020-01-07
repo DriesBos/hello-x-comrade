@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok">
+  <section v-editable="blok">
     <markdown-item :input="blok.text" />
     <form>
       <input type="text" placeholder="name" />
@@ -7,7 +7,7 @@
       <input type="text" placeholder="message" />
       <input type="submit" value="Send" />
     </form>
-  </div>
+  </section>
 </template>
 
 <script>

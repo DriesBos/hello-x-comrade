@@ -1,13 +1,12 @@
 body
   background: black
 
-body, #__nuxt, #__layout
+main
+  // border: 1px solid green
+  display: flex
+  flex-direction: column
+  justify-content: space-between
   min-height: 100vh
-
-section
-  max-width: 100%
-  img
-    max-width: 100%
 
 header
   // border: 1px solid red
@@ -15,9 +14,7 @@ header
   display: flex
   justify-content: space-between
   align-items: center
-  margin-left: var(--spacing-three)
-  margin-top: var(--spacing-two)
-  margin-right: var(--spacing-three)
+  margin: var(--spacing-two) var(--spacing-three)
   padding-bottom: var(--spacing-one)
   border-bottom: 1px solid white
   nav
@@ -35,3 +32,8 @@ header
     // border: 1px solid blue
     height: 100%
     width: 200px
+
+section
+  margin-left: var(--spacing-three)
+  margin-right: var(--spacing-three)
+  margin-bottom: var(--spacing-two)
