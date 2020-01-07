@@ -1,7 +1,10 @@
 <template>
   <div class="content">
     <section class="content-worksingle">
-      <p>{{ story.name }}</p>
+      <div class="text-blok">
+        <p>{{ story.content.text }}</p>
+        <p>{{ story.content.title }}</p>
+      </div>
     </section>
   </div>
 </template>

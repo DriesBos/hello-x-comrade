@@ -9,7 +9,7 @@
         >
           <nuxt-link :to="post.full_slug" tag="div">
             <h2>{{ post.content.title }}</h2>
-            <p>{{ post.content.year }}</p>
+            <p>/{{ post.content.year }}</p>
           </nuxt-link>
         </li>
       </ul>
