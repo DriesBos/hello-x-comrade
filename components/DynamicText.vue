@@ -1,5 +1,5 @@
 <template>
-  <div v-editable="blok">
+  <div class="dynamic-text" v-editable="blok">
     <markdown-item :input="blok.text" />
   </div>
 </template>
