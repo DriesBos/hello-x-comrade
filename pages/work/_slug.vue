@@ -3,7 +3,10 @@
     <section class="content-worksingle">
       <div class="text-blok">
         <p>{{ story.content.text }}</p>
-        <p>{{ story.content.title }}</p>
+        <h2>{{ story.content.title }}</h2>
+      </div>
+      <div class="slider-blok">
+        <slider :images="[story.content.images]" />
       </div>
     </section>
   </div>
