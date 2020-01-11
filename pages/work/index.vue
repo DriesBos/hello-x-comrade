@@ -1,13 +1,18 @@
 <template>
   <div class="content">
     <section class="content-work">
-      <ul>
-        <li
-          v-for="post in stories"
-          :id="post.content.id"
-          :key="post.content.id"
-        >
+      <ul class="list-projects_images">
+        <!-- prettier-ignore -->
+        <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
           <nuxt-link :to="post.full_slug" tag="div">
+            <img :src="post.content.cover_image" />
+          </nuxt-link>
+        </li>
+      </ul>
+      <ul class="list-projects_textual">
+        <!-- prettier-ignore -->
+        <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
+          <nuxt-link :to="post.full_slug" tag="div" class="text">
             <h2>{{ post.content.title }}</h2>
             <p>/{{ post.content.year }}</p>
           </nuxt-link>

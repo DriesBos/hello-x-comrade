@@ -36,6 +36,7 @@ header
       // border: 1px solid red
       height: 100%
       // width: auto !important
+      cursor: pointer
 
 section
   margin-left: var(--spacing-three)
@@ -72,12 +73,26 @@ form
   &-page
     display: block
   &-work
-    li
-      > div
+    .list-projects_textual
+      .text
         display: flex
         align-items: baseline
       h2
         margin-right: var(--spacing-two)
+        display: inline
+      h2, p
+        cursor: pointer
+    .list-projects_images
+      position: absolute
+      top: 0
+      right: 0
+      width: 50vw
+      overflow-y: auto
+      z-index: -1
+      li
+        img
+          max-width: 100%
+          cursor: pointer
   &-worksingle
     .text-blok
       display: flex
