@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <section class="content-work">
-      <ul class="list-projects_images">
+      <ul class="list-projects_images desktop">
         <!-- prettier-ignore -->
         <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
           <nuxt-link :to="post.full_slug" tag="div">
@@ -13,8 +13,11 @@
         <!-- prettier-ignore -->
         <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
           <nuxt-link :to="post.full_slug" tag="div" class="text">
-            <h2>{{ post.content.title }}</h2>
-            <p>/{{ post.content.year }}</p>
+            <h2>
+              {{ post.content.title }}
+              <span class="mobile">/</span>
+            </h2>
+            <p class="desktop">/{{ post.content.year }}</p>
           </nuxt-link>
         </li>
       </ul>

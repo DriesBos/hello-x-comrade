@@ -1,3 +1,5 @@
+@import '~/assets/styles/variables.sass'
+
 @font-face
   font-family: 'Sharp Grotesk Book'
   src: url('~assets/fonts/SharpGroteskTRIALBook20.woff2') format('woff2')
@@ -6,7 +8,7 @@
 
 body
   // https://css-tricks.com/snippets/css/fluid-typography/
-  font-size: calc(16px + (20 - 16) * ((100vw - 700px) / (1400 - 700)))
+  font-size: calc(16px + (20 - 16) * ((100vw - 800px) / (1400 - 800)))
 
 // Type in minor third scale https://type-scale.com/
 h1, h2, h3, p
@@ -54,6 +56,8 @@ time // Extra large text, synchronize
   font-size: 12.839em
   line-height: .9em
   height: .8em
+  @media screen and ( max-width: $breakpoint-mobile)
+    font-size: 30vw
 
 strong
   font-weight: bold

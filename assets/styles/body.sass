@@ -1,15 +1,15 @@
+@import '~/assets/styles/variables.sass'
+
 body
   background: black
 
 main
-  // border: 1px solid green
   display: flex
   flex-direction: column
   justify-content: space-between
   min-height: 100vh
 
 header
-  // border: 1px solid red
   position: relative
   display: flex
   justify-content: space-between
@@ -17,8 +17,12 @@ header
   margin: var(--spacing-two) var(--spacing-three) var(--spacing-four) var(--spacing-three)
   padding-bottom: var(--spacing-one)
   border-bottom: 1px solid white
+  @media screen and ( max-width: $breakpoint-mobile)
+    flex-direction: row-reverse
+    align-items: center
+    border-bottom: 0
+    padding-bottom: 0
   nav
-    margin-right: var(--spacing-two)
     ul
       li
         padding-right: 2em
@@ -27,16 +31,15 @@ header
       li:last-child
         padding-right: 0
   .logo
-    // border: 1px solid blue
-    flex-shrink: 1
-    // width: auto !important
     height: 2.2em
-    // font-size: 0 // Removes whitespace
-    svg
-      // border: 1px solid red
-      height: 100%
-      // width: auto !important
-      cursor: pointer
+
+.svg
+  height: 100%
+  width: auto
+  cursor: pointer
+  svg
+    height: 100%
+    width: auto
 
 section
   margin-left: var(--spacing-three)
@@ -56,6 +59,8 @@ form
     align-items: center
     margin-top: var(--spacing-three)
     height: calc(3.583em * 1.18) // Adds line-height
+    @media screen and ( max-width: $breakpoint-mobile)
+      justify-content: flex-start
     input
       display: inline
       cursor: pointer
@@ -64,10 +69,6 @@ form
       padding-right: var(--spacing-two)
     .arrow
       height: calc(100% / 1.18) // Removes line-height
-      width: auto
-      svg, path
-        height: 100%
-        width: auto
 
 .content
   &-page
@@ -82,6 +83,10 @@ form
         display: inline
       h2, p
         cursor: pointer
+      span
+        @media screen and ( max-width: $breakpoint-mobile)
+          display: inline
+
     .list-projects_images
       position: absolute
       top: 0
@@ -98,10 +103,18 @@ form
       display: flex
       align-items: flex-end
       margin-bottom: var(--spacing-two)
+      @media screen and ( max-width: $breakpoint-mobile)
+        flex-direction: column-reverse
       p, h2
         flex-basis: 50%
+        @media screen and ( max-width: $breakpoint-mobile)
+          flex-basis: 100%
+          width: 100%
       h2
         text-align: right
+        @media screen and ( max-width: $breakpoint-mobile)
+          text-align: left
+          margin-bottom: var(--spacing-one)
     .slider-Container
       position: relative
       width: 100%
@@ -112,6 +125,8 @@ form
         left: 0
         height: 100%
         width: 100%
+        img
+          object-fit: cover
   &-about
     .blok
       p
@@ -124,13 +139,21 @@ form
       padding-bottom: var(--spacing-three)
     .second
       display: flex
+      @media screen and ( max-width: $breakpoint-mobile)
+        flex-direction: column
       > div
         // border: 1px solid green
         flex-basis: 50%
+        @media screen and ( max-width: $breakpoint-mobile)
+          flex-basis: 100%
         &:first-child
           margin-right: 1em
+          @media screen and ( max-width: $breakpoint-mobile)
+            margin-right: 0
         &:nth-child(2)
           margin-left: 1em
+          @media screen and ( max-width: $breakpoint-mobile)
+            margin-left: 0
   &-synchronize
     ul
       display: flex
@@ -141,11 +164,17 @@ form
         display: flex
         justify-content: flex-start
         align-items: flex-end
+        @media screen and ( max-width: $breakpoint-mobile)
+          flex-direction: column
+          align-items: flex-start
         &:first-child
           margin-bottom: var(--spacing-two)
         p
           display: inline
           margin-left: .5em
+          flex-shrink: 0
+          @media screen and ( max-width: $breakpoint-mobile)
+            margin-top: var(--spacing-two)
   &-contact
     .markdown
       margin-bottom: var(--spacing-two)
@@ -168,3 +197,12 @@ form
   p h1, h2, h3
     font-size: 3.583em // Large text, home, contact and service pages
     line-height: 1.18
+
+.desktop
+  display: block
+  @media screen and ( max-width: $breakpoint-mobile)
+    display: none
+.mobile
+  display: none
+  @media screen and ( max-width: $breakpoint-mobile)
+    display: block

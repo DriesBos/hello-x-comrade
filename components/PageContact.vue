@@ -8,7 +8,7 @@
       <div class="button-send">
         <input type="submit" value="Send" />
         <!-- prettier-ignore -->
-        <div class="arrow" v-html="require('~/assets/images/arrow-right.svg?include')" />
+        <div class="svg arrow" v-html="require('~/assets/images/arrow-right.svg?include')" />
       </div>
     </form>
   </section>
