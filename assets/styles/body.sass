@@ -125,3 +125,14 @@ form
       margin-bottom: var(--spacing-two)
       p
         max-width: 28em
+
+// TODO Fix this (production doesnt render p, h1, h2 tags correctly)
+.content
+  &-Page
+    .markdown p
+      font-size: 3.583em // Large text, home, contact and service pages
+      line-height: 1.18
+  &-About
+    .markdown.blok-one p
+      font-size: 2.074em // Medium text, about page
+      line-height: 1.28
