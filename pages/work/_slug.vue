@@ -6,7 +6,7 @@
         <h2>{{ story.content.title }}</h2>
       </div>
       <div class="slider-blok">
-        <slider :images="[story.content.images]" />
+        <slider :images="story.content.images" />
       </div>
     </section>
   </div>
