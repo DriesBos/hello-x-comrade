@@ -10,7 +10,7 @@
       </ul>
     </nav>
     <nuxt-link to="/" tag="div" class="logo">
-      <div v-html="require('~/assets/images/logo.svg?include')" />
+      <svg v-html="require('~/assets/images/logo.svg?include')" />
     </nuxt-link>
   </header>
 </template>

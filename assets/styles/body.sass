@@ -13,25 +13,29 @@ header
   position: relative
   display: flex
   justify-content: space-between
-  align-items: center
-  margin: var(--spacing-two) var(--spacing-three)
+  align-items: flex-end
+  margin: var(--spacing-two) var(--spacing-three) var(--spacing-four) var(--spacing-three)
   padding-bottom: var(--spacing-one)
   border-bottom: 1px solid white
   nav
     margin-right: var(--spacing-two)
     ul
       li
-        padding-right: .5em
+        padding-right: 2em
         cursor: pointer
         display: inline-block
       li:last-child
         padding-right: 0
-    .nuxt-link-exact-active
-      text-decoration: underline
   .logo
     // border: 1px solid blue
-    height: 100%
-    width: 200px
+    flex-shrink: 1
+    // width: auto !important
+    height: 2.2em
+    // font-size: 0 // Removes whitespace
+    svg
+      // border: 1px solid red
+      height: 100%
+      // width: auto !important
 
 section
   margin-left: var(--spacing-three)
@@ -39,11 +43,6 @@ section
   margin-bottom: var(--spacing-two)
 
 form
-  margin-top: var(--spacing-one)
-  input[type="text"], 
-  input[type="submit"],
-  textarea
-    font-size: 3em
   input
     width: 100%
   input::placeholder
@@ -54,20 +53,24 @@ form
     display: flex
     justify-content: flex-end
     align-items: center
-    margin-top: var(--spacing-two)
-    input, div
+    margin-top: var(--spacing-three)
+    height: calc(3.5em * 1.18)
+    input
       display: inline
       cursor: pointer
+      flex-shrink: 1
     input
-      padding-right: var(--spacing-three)
-    div
-      height:
+      padding-right: var(--spacing-two)
+    .arrow
+      height: calc(100% / 1.18)
+      width: auto
+      svg, path
+        height: 100%
+        width: auto
 
 .content
   &-page
-    .markdown
-      p
-        font-size: 3em
+    display: block
   &-work
     li
       > div
@@ -83,7 +86,6 @@ form
         flex-basis: 50%
         &:nth-child(2)
           text-align: right
-          font-size: 3em
   &-about
     .blok
       p
@@ -93,7 +95,7 @@ form
         margin-bottom: var(--spacing-one)
         border-bottom: 1px solid white
     .blok-one
-      font-size: 2em
+      padding-bottom: var(--spacing-three)
     .second
       display: flex
       > div
@@ -111,13 +113,15 @@ form
       li
         // border: 1px solid blue
         display: flex
-        justify-content: space-between
+        justify-content: flex-start
         align-items: flex-end
         &:first-child
           margin-bottom: var(--spacing-two)
         p
           display: inline
+          margin-left: .5em
   &-contact
     .markdown
+      margin-bottom: var(--spacing-two)
       p
-        max-width: 36em
+        max-width: 28em

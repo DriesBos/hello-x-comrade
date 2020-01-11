@@ -7,7 +7,8 @@
       <input type="text" placeholder="message" />
       <div class="button-send">
         <input type="submit" value="Send" />
-        <div v-html="require('~/assets/images/arrow-right.svg?include')" />
+        <!-- prettier-ignore -->
+        <div class="arrow" v-html="require('~/assets/images/arrow-right.svg?include')" />
       </div>
     </form>
   </section>
