@@ -6,15 +6,21 @@ body
 main
   display: flex
   flex-direction: column
-  justify-content: space-between
+  justify-content: flex-end
   min-height: 100vh
+  padding-top: 40vh
 
 header
-  position: relative
+  position: fixed
+  left: 0
+  top: 0
+  right: 0
   display: flex
   justify-content: space-between
   align-items: flex-end
-  margin: var(--spacing-two) var(--spacing-three) var(--spacing-four) var(--spacing-three)
+  margin-left: var(--spacing-three)
+  margin-right: var(--spacing-three)
+  padding-top: var(--spacing-two)
   padding-bottom: var(--spacing-one)
   border-bottom: 1px solid white
   @media screen and ( max-width: $breakpoint-mobile)
@@ -184,15 +190,16 @@ form
 // TODO Fix this (production doesnt render p, h1, h2 tags correctly)
 .content
   &-page
+    &-about,
     .markdown
       p h1, h2, h3
         font-size: 3.583em // Large text, home, contact and service pages
         line-height: 1.18
-  &-about
-    .blok-one
-      p, h1, h2, h3
-        font-size: 2.074em // Medium text, about page
-        line-height: 1.28
+  // &-about
+  //   .blok-one
+  //     p, h1, h2, h3
+  //       font-size: 2.074em // Medium text, about page
+  //       line-height: 1.28
 .dynamic-text
   p h1, h2, h3
     font-size: 3.583em // Large text, home, contact and service pages
