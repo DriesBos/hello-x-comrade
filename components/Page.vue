@@ -1,16 +1,18 @@
 <template>
   <section v-editable="blok" class="content-page">
     <component
-      :key="blok._uid"
-      v-for="blok in blok.body"
-      :blok="blok"
       :is="blok.component | dashify"
+      v-for="blok in blok.body"
+      :key="blok._uid"
+      :blok="blok"
     ></component>
   </section>
 </template>
 
 <script>
 export default {
-  props: ["blok"]
+  props: {
+    blok: Object
+  }
 }
 </script>

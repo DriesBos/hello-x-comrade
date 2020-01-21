@@ -16,6 +16,8 @@
 
 <script>
 export default {
-  props: ["blok"]
+  props: {
+    blok: Object
+  }
 }
 </script>

@@ -1,11 +1,13 @@
 <template>
-  <div class="dynamic-text" v-editable="blok">
+  <div v-editable="blok" class="dynamic-text">
     <markdown-item :input="blok.text" />
   </div>
 </template>
 
 <script>
 export default {
-  props: ["blok"]
+  props: {
+    blok: Object
+  }
 }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div class="slider-Container">
-    <div class="image-Slider" v-for="image in images" :key="image.filename">
+    <div v-for="image in images" :key="image.filename" class="image-Slider">
       <img :src="`https:${image.filename}`" class="image" />
     </div>
   </div>
