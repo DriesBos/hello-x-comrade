@@ -3,7 +3,11 @@
     <transition-group>
       <!-- prettier-ignore -->
       <div v-for="number in [index]" :key="number" class="image-Slider">
-        <img :src="`https:${currentImage}`" class="image" />
+        <picture class="image">
+          <source type="image/webp" :srcset="currentImage | transformImage('1680x0/filters:format(webp)')">
+          <source type="image/png" :srcset="currentImage | transformImage( '1680x0/filters:format(png)')">
+          <img loading="lazy" :data-src="currentImage | transformImage('1680x0')" />
+        </picture>
       </div>
     </transition-group>
   </div>
@@ -13,11 +17,16 @@
 export default {
   name: "SliderItem",
   props: {
-    images: {}
+    images: Array
   },
   data() {
     return {
       index: 0
+    }
+  },
+  computed: {
+    currentImage: function() {
+      return this.getCurrentImage()
     }
   },
   mounted() {},
@@ -39,11 +48,6 @@ export default {
     },
     getCurrentImage() {
       return this.images[this.index].filename
-    }
-  },
-  computed: {
-    currentImage: function() {
-      return this.getCurrentImage()
     }
   }
 }

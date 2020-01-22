@@ -5,7 +5,11 @@
         <!-- prettier-ignore -->
         <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
           <nuxt-link :to="post.full_slug" tag="div">
-            <img :src="post.content.cover_image" />
+                    <picture class="image">
+          <source type="image/webp" :srcset="post.content.cover_image | transformImage('1400x0/filters:format(webp)')">
+          <source type="image/png" :srcset="post.content.cover_image | transformImage( '1400x0/filters:format(png)')">
+          <img loading="lazy" :data-src="post.content.cover_image | transformImage('1400x0')" />
+        </picture>
           </nuxt-link>
         </li>
       </ul>
