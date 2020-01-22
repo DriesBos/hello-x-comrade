@@ -46,7 +46,7 @@ module.exports = {
     ["@nuxtjs/pwa"],
     [
       "@bazzite/nuxt-optimized-images",
-      { optimizedImages: { optimizeImagesInDev: true } } // Test compression by setting to true first
+      { optimizedImages: { optimizeImages: true, optimizeImagesInDev: true } } // Test compression by setting to true first
     ],
     [
       "storyblok-nuxt",
