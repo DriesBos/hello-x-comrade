@@ -5,7 +5,7 @@
         <p>{{ story.content.text }}</p>
         <h2>{{ story.content.title }}</h2>
       </div>
-      <div class="slider-blok">
+      <div class="slider-blok" :class="{ active: toggleSlider }">
         <slider :images="story.content.images" />
       </div>
     </section>
@@ -51,11 +51,26 @@ export default {
   },
   data() {
     return {
-      story: { content: {} }
+      story: { content: {} },
+      toggleSlider: false
     }
   },
   mounted() {
-    // console.log("STORY", this.story)
+    window.addEventListener("scroll", this.onScroll)
+  },
+  methods: {
+    onScroll() {
+      const currentScrollPosition =
+        window.pageYOffset || document.documentElement.scrollTop
+      if (currentScrollPosition < 0) {
+        return
+      }
+      if (currentScrollPosition > 300) {
+        return (this.toggleSlider = true)
+      } else {
+        return (this.toggleSlider = false)
+      }
+    }
   }
 }
 </script>

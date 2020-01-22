@@ -65,6 +65,7 @@ header
   margin: var(--spacing-two)
   margin-top: var(--spacing-two)
   cursor: pointer
+  z-index: 999
 
 section
   margin-bottom: var(--spacing-two)
@@ -122,6 +123,7 @@ form
           max-width: 100%
           cursor: pointer
   &-worksingle
+    min-height: 100vh
     .text-blok
       display: flex
       align-items: flex-end
@@ -138,10 +140,11 @@ form
         @media screen and ( max-width: $breakpoint-mobile)
           text-align: left
           margin-bottom: var(--spacing-one)
-    .slider-Container
+    .slider-blok
       position: relative
       width: 100%
       height: 100vh
+      transition: all 2s
       .image-Slider
         position: absolute
         top: 0
@@ -150,6 +153,11 @@ form
         width: 100%
         img
           object-fit: cover
+      &.active
+        position: fixed !important
+        top: 0
+        left: 0
+        right: 0
   &-about
     .blok
       p
