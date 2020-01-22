@@ -1,14 +1,9 @@
 <template>
   <div class="slider-Container" @click="increment">
-    <transition-group name="slider">
-      <div
-        v-for="(image, i) in images"
-        :key="i"
-        :image="image"
-        :i="i"
-        class="image-Slider"
-      >
-        <img :src="`https:${getCurrentImage().filename}`" class="image" />
+    <transition-group>
+      <!-- prettier-ignore -->
+      <div v-for="number in [index]" :key="number" class="image-Slider">
+        <img :src="`https:${currentImage}`" class="image" />
       </div>
     </transition-group>
   </div>
@@ -25,9 +20,7 @@ export default {
       index: 0
     }
   },
-  mounted() {
-    // console.log(this.images[0])
-  },
+  mounted() {},
   methods: {
     increment() {
       if (this.index >= this.images.length - 1) {
@@ -35,6 +28,7 @@ export default {
       } else {
         this.index += 1
       }
+      console.log("INCREMENT", this.index, this.currentImage)
     },
     decrement() {
       if (this.index > 0) {
@@ -44,7 +38,12 @@ export default {
       }
     },
     getCurrentImage() {
-      return this.images[this.index]
+      return this.images[this.index].filename
+    }
+  },
+  computed: {
+    currentImage: function() {
+      return this.getCurrentImage()
     }
   }
 }
