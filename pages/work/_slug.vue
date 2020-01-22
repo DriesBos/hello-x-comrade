@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <section class="content-worksingle">
-      <div class="text-blok">
+      <div class="text-blok textBlock">
         <p>{{ story.content.text }}</p>
         <h2>{{ story.content.title }}</h2>
       </div>

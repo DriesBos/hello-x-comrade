@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <section class="content-work">
+    <section class="content-work textBlock">
       <ul class="list-projects_images desktop">
         <!-- prettier-ignore -->
         <li v-for="post in stories" :id="post.content.id" :key="post.content.id">

@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <section class="content-synchronize">
+    <section class="content-synchronize textBlock">
       <ul>
         <li>
           <time>{{ timeAMS }}</time>

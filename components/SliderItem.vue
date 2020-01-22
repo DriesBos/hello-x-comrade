@@ -1,8 +1,16 @@
 <template>
-  <div class="slider-Container">
-    <div v-for="image in images" :key="image.filename" class="image-Slider">
-      <img :src="`https:${image.filename}`" class="image" />
-    </div>
+  <div @click="increment" class="slider-Container">
+    <transition-group name="slider">
+      <div
+        v-for="(image, index) in images"
+        :image="image"
+        :index="index"
+        :key="index"
+        class="image-Slider"
+      >
+        <img :src="`https:${getCurrentImage().filename}`" class="image" />
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -11,6 +19,34 @@ export default {
   name: "SliderItem",
   props: {
     images: {}
+  },
+  data() {
+    return {
+      index: 0
+    }
+  },
+  mounted() {
+    // console.log(this.images[0])
+  },
+  methods: {
+    increment() {
+      if (this.index >= this.images.length - 1) {
+        this.index = 0
+      } else {
+        this.index += 1
+      }
+      console.log(this.index)
+    },
+    decrement() {
+      if (this.index > 0) {
+        this.index -= 1
+      } else {
+        this.index = this.images.length - 1
+      }
+    },
+    getCurrentImage() {
+      return this.images[this.index]
+    }
   }
 }
 </script>
@@ -20,6 +56,7 @@ export default {
   position: relative
   z-index: 995
   height: 100%
+  cursor: pointer
 .image-Slider
   display: flex
   justify-content: center
@@ -37,28 +74,8 @@ export default {
     img
       max-width: 100%
       max-height: 100%
-// .image-Slider_Close
-//   position: absolute
-//   top: 0
-//   left: 0
-// .image-Slider_Nav
-//   display: block
-//   position: fixed
-//   z-index: 999
-//   top: 50%
-//   transform: translateY(-50%)
-//   cursor: pointer
-// .image-Slider_Nav, .image-Slider_Close
-//   img
-//     background: rgba(255,255,255,0.5)
-//     -webkit-backdrop-filter: saturate(180%) blur(2px)
-//     backdrop-filter: saturate(180%) blur(2px)
-// .image-Slider_Prev
-//   left: 0
-// .image-Slider_Next
-//   right: 0
-// .slider-enter-active, .slider-leave-active
-//   transition: all .2s ease
-// .slider-enter, .slider-leave-to
-//   opacity: 0
+.slider-enter-active, .slider-leave-active
+  transition: all 2s ease
+.slider-enter, .slider-leave-to
+  opacity: 0
 </style>
