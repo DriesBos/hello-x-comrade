@@ -11,6 +11,12 @@
         <div class="svg arrow" v-html="require('~/assets/images/arrow-right.svg?include')" />
       </div>
     </form>
+    <nuxt-link to="/" tag="div">
+      <div
+        class="svg close"
+        v-html="require('~/assets/images/close.svg?include')"
+      />
+    </nuxt-link>
   </section>
 </template>
 

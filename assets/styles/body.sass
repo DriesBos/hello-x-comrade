@@ -24,8 +24,7 @@ header
   padding-bottom: var(--spacing-one)
   border-bottom: 1px solid white
   transform: translate3d(0, -100%, 0)
-  transition: 0.33s transform ease-out
-  background: black
+  transition: 0.3s transform ease
   &.toggle
     transform: translate3d(0, 0, 0)
   &.close
@@ -54,6 +53,15 @@ header
   svg
     height: 100%
     width: auto
+.close
+  position: fixed
+  top: 0
+  right: 0
+  height: 2em
+  width: 2em
+  margin: var(--spacing-two)
+  margin-top: var(--spacing-two)
+  cursor: pointer
 
 section
   margin-left: var(--spacing-three)

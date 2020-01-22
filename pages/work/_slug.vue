@@ -9,6 +9,12 @@
         <slider :images="story.content.images" />
       </div>
     </section>
+    <nuxt-link to="/work" tag="div">
+      <div
+        class="svg close"
+        v-html="require('~/assets/images/close.svg?include')"
+      />
+    </nuxt-link>
   </div>
 </template>
 
