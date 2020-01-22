@@ -40,6 +40,8 @@ export default {
       if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 100) {
         return
       }
+      if (this.$route.path === "/contact" || this.$route.name === "work-slug")
+        return (this.showHeader = false)
       this.showHeader = currentScrollPosition < this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
     }
