@@ -55,7 +55,7 @@ export default {
     }
   },
   mounted() {
-    console.log("STORY", this.story)
+    // console.log("STORY", this.story)
   }
 }
 </script>
