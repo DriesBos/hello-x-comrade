@@ -29,6 +29,12 @@ export default {
       }
     }
   },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll)
+  },
   methods: {
     onScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
@@ -45,12 +51,6 @@ export default {
       this.showHeader = currentScrollPosition < this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
     }
-  },
-  mounted() {
-    window.addEventListener("scroll", this.onScroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll)
   }
 }
 </script>

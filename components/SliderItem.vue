@@ -1,11 +1,11 @@
 <template>
-  <div @click="increment" class="slider-Container">
+  <div class="slider-Container" @click="increment">
     <transition-group name="slider">
       <div
-        v-for="(image, index) in images"
+        v-for="(image, i) in images"
+        :key="i"
         :image="image"
-        :index="index"
-        :key="index"
+        :i="i"
         class="image-Slider"
       >
         <img :src="`https:${getCurrentImage().filename}`" class="image" />
@@ -35,7 +35,6 @@ export default {
       } else {
         this.index += 1
       }
-      console.log(this.index)
     },
     decrement() {
       if (this.index > 0) {
