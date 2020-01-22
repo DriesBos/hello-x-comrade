@@ -13,11 +13,16 @@
 export default {
   name: "SliderItem",
   props: {
-    images: {}
+    images: Array
   },
   data() {
     return {
       index: 0
+    }
+  },
+  computed: {
+    currentImage: function() {
+      return this.getCurrentImage()
     }
   },
   mounted() {},
@@ -39,11 +44,6 @@ export default {
     },
     getCurrentImage() {
       return this.images[this.index].filename
-    }
-  },
-  computed: {
-    currentImage: function() {
-      return this.getCurrentImage()
     }
   }
 }
