@@ -1,5 +1,5 @@
 <template>
-  <div class="content textBlock">
+  <div class="content">
     <component
       :is="story.content.component | dashify"
       v-if="story.content.component"
