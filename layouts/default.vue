@@ -43,7 +43,7 @@ export default {
       if (currentScrollPosition < 0) {
         return
       }
-      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 100) {
+      if (Math.abs(currentScrollPosition - this.lastScrollPosition) < 50) {
         return
       }
       if (this.$route.path === "/contact" || this.$route.name === "work-slug")
