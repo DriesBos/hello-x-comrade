@@ -82,30 +82,6 @@ header
     height: 100%
     width: auto
 
-form
-  input
-    width: 100%
-  input::placeholder
-    color: white
-  input[type="text"]
-    border-bottom: 1px solid white
-  .button-send
-    display: flex
-    justify-content: flex-end
-    align-items: center
-    margin-top: var(--spacing-three)
-    height: calc(3.583em * 1.18) // Adds line-height
-    @media screen and ( max-width: $breakpoint-mobile)
-      justify-content: flex-start
-    input
-      display: inline
-      cursor: pointer
-      flex-shrink: 1
-    input
-      padding-right: var(--spacing-two)
-    .arrow
-      height: calc(100% / 1.18) // Removes line-height
-
 .content
   &-Page
     display: block
@@ -226,13 +202,43 @@ form
           flex-shrink: 0
           @media screen and ( max-width: $breakpoint-mobile)
             margin-top: var(--spacing-two)
-  &-contact
+
+  &-Contact
+    padding-top: var(--top-padding-noheader)
     margin-left: var(--spacing-three)
     margin-right: var(--spacing-three)
+    margin-bottom: var(--top-padding-noheader)
     .markdown
       margin-bottom: var(--spacing-two)
       p
         max-width: 28em
+    form
+      input
+        width: 100%
+        line-height: 1em
+      input::placeholder
+        color: white
+      input[type="text"]
+        border-bottom: 1px solid white
+      .button-Send
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        margin-top: var(--spacing-three)
+        text-align: right
+        cursor: pointer
+        @media screen and ( max-width: $breakpoint-mobile)
+          justify-content: flex-start
+        input
+          text-align: right
+          padding-right: var(--spacing-two)
+        &_Arrow
+          width: auto
+          flex-shrink: 0
+          flex-grow: 1
+          svg
+            height: 100%
+            width: 20vw
 
 // TODO Fix this (production doesnt render p, h1, h2 tags correctly)
 .content
