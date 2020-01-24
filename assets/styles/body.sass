@@ -8,7 +8,6 @@ main
   flex-direction: column
   justify-content: flex-end
   min-height: 100vh
-  padding-top: 40vh
 
 .textBlock
   margin-left: var(--spacing-three)
@@ -75,9 +74,6 @@ header
   cursor: pointer
   z-index: 999
 
-section
-  margin-bottom: var(--spacing-two)
-
 form
   input
     width: 100%
@@ -105,34 +101,41 @@ form
 .content
   &-page
     display: block
-  &-work
-    .list-projects_textual
-      .text
-        display: flex
-        align-items: baseline
-      h2
-        margin-right: var(--spacing-two)
+  &-Work
+    padding-top: var(--top-padding)
+    padding-left: var(--spacing-three)
+    padding-right: var(--spacing-three)
+    padding-bottom: var(--spacing-three)
+    a
+      display: inline-flex
+      align-items: baseline
+      text-decoration: none
+      &:hover
+        h2
+          text-decoration: underline
+        & ~ .image
+          display: block
+    h2
+      margin-right: var(--spacing-two)
+      display: inline
+    h2, p
+      cursor: pointer
+      display: inline
+    span
+      @media screen and ( max-width: $breakpoint-mobile)
         display: inline
-      h2, p
-        cursor: pointer
-      span
-        @media screen and ( max-width: $breakpoint-mobile)
-          display: inline
-
-    .list-projects_images
-      position: absolute
+    .image
+      position: fixed
       top: 0
       right: 0
       width: 50vw
-      overflow-y: auto
+      height: 100vh
+      display: none
       z-index: -1
-      li
-        min-height: 100vh
-        img
-          max-width: 100%
-          cursor: pointer
-          height: 100%
-          object-fit: cover
+      img
+        width: 100%
+        height: 100%
+        object-fit: cover
   &-worksingle
     min-height: 100vh
     .text-blok

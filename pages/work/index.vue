@@ -1,10 +1,14 @@
 <template>
   <div class="content">
-    <section class="content-work textBlock">
-      <ul class="list-projects_images desktop">
-        <!-- prettier-ignore -->
-        <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
-          <nuxt-link :to="post.full_slug" tag="div">
+    <!-- <section class="content-work content-Work_Images">
+      <ul>
+        <li
+          v-for="post in stories"
+          :id="post.content.id"
+          :key="post.content.id"
+          :class="post.content.id"
+        >
+          <nuxt-link :to="post.full_slug" tag="span">
             <picture class="image">
               <source
                 type="image/webp"
@@ -19,16 +23,34 @@
           </nuxt-link>
         </li>
       </ul>
-      <ul class="list-projects_textual">
+    </section>-->
+    <section class="content-Work">
+      <ul>
         <!-- prettier-ignore -->
-        <li v-for="post in stories" :id="post.content.id" :key="post.content.id">
-          <nuxt-link :to="post.full_slug" tag="div" class="text">
+        <li
+          v-for="post in stories"
+          :id="post.content.id"
+          :key="post.content.id"
+          :class="post.content.id"
+        >
+          <nuxt-link :to="post.full_slug">
             <h2>
               {{ post.content.title }}
               <span class="mobile">/</span>
             </h2>
             <p class="desktop">/{{ post.content.year }}</p>
           </nuxt-link>
+          <picture class="image">
+            <source
+              type="image/webp"
+              :srcset="post.content.cover_image | transformImage('1400x0/filters:format(webp)')"
+            />
+            <source
+              type="image/png"
+              :srcset="post.content.cover_image | transformImage( '1400x0/filters:format(png)')"
+            />
+            <img loading="lazy" :data-src="post.content.cover_image | transformImage('1400x0')" />
+          </picture>
         </li>
       </ul>
     </section>
