@@ -9,7 +9,7 @@ main
   justify-content: flex-end
   min-height: 100vh
 
-.textBlock
+.dynamic-Text
   margin-left: var(--spacing-three)
   margin-right: var(--spacing-three)
 
@@ -99,8 +99,9 @@ form
       height: calc(100% / 1.18) // Removes line-height
 
 .content
-  &-page
+  &-Page
     display: block
+    padding-top: var(--top-padding)
   &-Work
     padding-top: var(--top-padding)
     padding-left: var(--spacing-three)
@@ -147,7 +148,7 @@ form
       display: flex
       justify-content: space-between
       align-items: flex-end
-      padding-top: var(--top-padding-noheader)
+      padding-top: var(--top-padding)
       padding-left: var(--spacing-three)
       padding-right: var(--spacing-three)
       padding-bottom: var(--spacing-three)
@@ -227,6 +228,8 @@ form
           @media screen and ( max-width: $breakpoint-mobile)
             margin-top: var(--spacing-two)
   &-contact
+    margin-left: var(--spacing-three)
+    margin-right: var(--spacing-three)
     .markdown
       margin-bottom: var(--spacing-two)
       p
