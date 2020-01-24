@@ -1,29 +1,5 @@
 <template>
   <div class="content">
-    <!-- <section class="content-work content-Work_Images">
-      <ul>
-        <li
-          v-for="post in stories"
-          :id="post.content.id"
-          :key="post.content.id"
-          :class="post.content.id"
-        >
-          <nuxt-link :to="post.full_slug" tag="span">
-            <picture class="image">
-              <source
-                type="image/webp"
-                :srcset="post.content.cover_image | transformImage('1400x0/filters:format(webp)')"
-              />
-              <source
-                type="image/png"
-                :srcset="post.content.cover_image | transformImage( '1400x0/filters:format(png)')"
-              />
-              <img loading="lazy" :data-src="post.content.cover_image | transformImage('1400x0')" />
-            </picture>
-          </nuxt-link>
-        </li>
-      </ul>
-    </section>-->
     <section class="content-Work">
       <ul>
         <!-- prettier-ignore -->
@@ -34,10 +10,10 @@
           :class="post.content.id"
         >
           <nuxt-link :to="post.full_slug">
-            <h2>
+            <h1>
               {{ post.content.title }}
               <span class="mobile">/</span>
-            </h2>
+            </h1>
             <p class="desktop">/{{ post.content.year }}</p>
           </nuxt-link>
           <picture class="image">
@@ -91,9 +67,6 @@ export default {
     return {
       stories: { content: {} }
     }
-  },
-  mounted() {
-    // console.log(this.stories)
   }
 }
 </script>

@@ -1,19 +1,18 @@
 <template>
   <div class="content">
-    <section class="content-worksingle">
-      <div class="text-blok textBlock">
+    <section class="content-Worksingle">
+      <div class="content-Worksingle_Text">
         <p>{{ story.content.text }}</p>
-        <h2>{{ story.content.title }}</h2>
+        <h1>{{ story.content.title }}</h1>
       </div>
-      <div class="slider-blok" :class="{ active: toggleSlider }">
+      <!-- prettier-ignore -->
+      <div class="content-Worksingle_Slider slider-blok" :class="{ active: toggleSlider }">
         <slider :images="story.content.images" />
       </div>
     </section>
     <nuxt-link to="/work" tag="div">
-      <div
-        class="svg close"
-        v-html="require('~/assets/images/close.svg?include')"
-      />
+      <!-- prettier-ignore -->
+      <div class="svg close" v-html="require('~/assets/images/close.svg?include')" />
     </nuxt-link>
   </div>
 </template>
@@ -56,20 +55,15 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll)
+    window.addEventListener("resize", () => {
+      this.measureHeight(`content-Worksingle_Text`)
+    })
   },
   methods: {
-    onScroll() {
-      const currentScrollPosition =
-        window.pageYOffset || document.documentElement.scrollTop
-      if (currentScrollPosition < 0) {
-        return
-      }
-      if (currentScrollPosition > 300) {
-        return (this.toggleSlider = true)
-      } else {
-        return (this.toggleSlider = false)
-      }
+    measureHeight(e) {
+      const element = document.getElementsByClassName(`${e}`)
+      const height = element.offsetHeight
+      element.style.marginTop = `${height}px`
     }
   }
 }

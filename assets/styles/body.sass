@@ -26,7 +26,7 @@ header
   padding-top: var(--spacing-two)
   padding-bottom: var(--spacing-one)
   border-bottom: 1px solid white
-  transform: translate3d(0, -100%, 0)
+  transform: translate3d(0, -101%, 0)
   transition: 0.3s transform ease
   will-change: transform
   &.toggle
@@ -136,28 +136,38 @@ form
         width: 100%
         height: 100%
         object-fit: cover
-  &-worksingle
+  &-Worksingle
+    position: relative
     min-height: 100vh
-    .text-blok
+    &_Text
+      position: fixed
+      top: 0
+      left: 0
+      width: 100%
       display: flex
+      justify-content: space-between
       align-items: flex-end
-      margin-bottom: var(--spacing-two)
-      @media screen and ( max-width: $breakpoint-mobile)
-        flex-direction: column-reverse
-      p, h2
-        flex-basis: 50%
-        @media screen and ( max-width: $breakpoint-mobile)
-          flex-basis: 100%
-          width: 100%
-      h2
+      padding-top: var(--top-padding-noheader)
+      padding-left: var(--spacing-three)
+      padding-right: var(--spacing-three)
+      padding-bottom: var(--spacing-three)
+      // @media screen and ( max-width: $breakpoint-mobile)
+      //   flex-direction: column-reverse
+      p, h1
+        flex-basis: calc(50% - 1em)
+        // @media screen and ( max-width: $breakpoint-mobile)
+        //   flex-basis: 100%
+        //   width: 100%
+      h1
         text-align: right
-        @media screen and ( max-width: $breakpoint-mobile)
-          text-align: left
-          margin-bottom: var(--spacing-one)
-    .slider-blok
-      position: relative
+        // @media screen and ( max-width: $breakpoint-mobile)
+        //   text-align: left
+        //   margin-bottom: var(--spacing-one)
+    &_Slider
+      position: absolute
       width: 100%
       height: 100vh
+      margin-top: 50vh
       .image-Slider
         position: absolute
         top: 0
@@ -168,13 +178,6 @@ form
           object-fit: cover
           width: 100%
           height: 100%
-      &.active
-        position: fixed !important
-        top: 0
-        left: 0
-        right: 0
-        bottom: 0
-        background: black
   &-about
     .blok
       p
