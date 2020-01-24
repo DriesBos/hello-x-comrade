@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-Container" @click="increment">
+  <div class="slider-Container" @click="next">
     <transition-group>
       <!-- prettier-ignore -->
       <div v-for="number in [index]" :key="number" class="image-Slider">
@@ -16,6 +16,15 @@
         </picture>
       </div>
     </transition-group>
+    <!-- prettier-ignore -->
+    <div class="slider-Navigation">
+      <a v-if="imageCount > 1" @click="previous" class="slider-Nav slider-Nav_Prev">
+        <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" />
+      </a>
+      <a v-if="imageCount > 1" @click="next" class="slider-Nav slider-Nav_Next">
+        <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" />
+      </a>
+    </div>
   </div>
 </template>
 
@@ -33,6 +42,9 @@ export default {
   computed: {
     currentImage: function() {
       return this.getCurrentImage()
+    },
+    imageCount: function() {
+      return this.images.filter(image => image).length
     }
   },
   mounted() {},
@@ -52,6 +64,18 @@ export default {
         this.index = this.images.length - 1
       }
     },
+    next: function() {
+      this.increment()
+      while (!this.getCurrentImage()) {
+        this.increment()
+      }
+    },
+    previous: function() {
+      this.decrement()
+      while (!this.getCurrentImage()) {
+        this.decrement()
+      }
+    },
     getCurrentImage() {
       return this.images[this.index].filename
     }
@@ -60,11 +84,25 @@ export default {
 </script>
 
 <style lang="sass">
-.slider-Container
-  position: relative
-  z-index: 995
-  height: 100%
-  cursor: pointer
+.slider
+  &-Container
+    position: relative
+    z-index: 995
+    height: 100%
+    cursor: pointer
+  &-Nav
+    position: absolute
+    padding: var(--spacing-two)
+    top: 50%
+    transform: translateY(-50%)
+    &_Prev
+      left: 0
+    &_Next
+      right: 0
+      svg
+        transform: rotate(180deg)
+
+
 .image-Slider
   display: flex
   justify-content: center
