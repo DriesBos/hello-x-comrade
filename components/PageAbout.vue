@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok" class="content-about textBlock">
+  <section v-editable="blok" class="content-about">
     <markdown-item :input="blok.main_text" class="blok blok-one" />
     <div class="second">
       <div class="blok blok-two">
