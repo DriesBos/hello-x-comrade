@@ -86,6 +86,7 @@ header
   &-Page
     display: block
     padding-top: var(--top-padding)
+    padding-bottom: var(--spacing-three)
   &-Work
     padding-top: var(--top-padding)
     padding-left: var(--spacing-three)
@@ -154,7 +155,11 @@ header
           object-fit: cover
           width: 100%
           height: 100%
-  &-about
+  &-About
+    padding-top: var(--top-padding)
+    padding-left: var(--spacing-three)
+    padding-right: var(--spacing-three)
+    padding-bottom: var(--spacing-three)
     .blok
       p
         margin-bottom: var(--spacing-two)
@@ -162,8 +167,13 @@ header
         padding-bottom: var(--spacing-one)
         margin-bottom: var(--spacing-one)
         border-bottom: 1px solid white
+        font-size: 1em
+        line-height: 1.5
     .blok-one
-      padding-bottom: var(--spacing-three)
+      margin-bottom: var(--spacing-three)
+      .markdown p
+        font-size: 8vmin
+        line-height: 9.5vmin
     .second
       display: flex
       @media screen and ( max-width: $breakpoint-mobile)
@@ -242,7 +252,7 @@ header
           flex-grow: 1
           svg
             height: 100%
-            width: 20vw
+            width: 20vmin
 
 // TODO Fix this (production doesnt render p, h1, h2 tags correctly)
 .content

@@ -33,11 +33,11 @@ export default {
       var amsTime = new Date(today + 3600000 * amsTimeZone)
       let userTimeZone = today.getTimezoneOffset() * 60000
       var userTime = new Date(today + 3600000 * userTimeZone)
-      console.log(today)
-      console.log(amsTimeZone)
-      console.log(amsTime)
-      console.log(userTimeZone)
-      console.log(userTime)
+      // console.log(today)
+      // console.log(amsTimeZone)
+      // console.log(amsTime)
+      // console.log(userTimeZone)
+      // console.log(userTime)
       this.timeAMS =
         (amsTime.getHours() < 10 ? "0" : "") +
         amsTime.getHours() +
