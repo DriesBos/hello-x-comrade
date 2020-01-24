@@ -1,12 +1,16 @@
 <template>
   <div class="content">
     <section class="content-Worksingle">
-      <div class="content-Worksingle_Text">
+      <div id="worksingle-Text" class="content-Worksingle_Text">
         <p>{{ story.content.text }}</p>
         <h1>{{ story.content.title }}</h1>
       </div>
       <!-- prettier-ignore -->
-      <div class="content-Worksingle_Slider slider-blok" :class="{ active: toggleSlider }">
+      <div
+        id="worksingle-Slider"
+        class="content-Worksingle_Slider slider-blok"
+        :class="{ active: toggleSlider }"
+      >
         <slider :images="story.content.images" />
       </div>
     </section>
@@ -54,17 +58,19 @@ export default {
       toggleSlider: false
     }
   },
-  mounted() {
-    window.addEventListener("resize", () => {
-      this.measureHeight(`content-Worksingle_Text`)
-    })
-  },
   methods: {
-    measureHeight(e) {
-      const element = document.getElementsByClassName(`${e}`)
+    measureHeight() {
+      const element = document.getElementById("worksingle-Text")
+      const image = document.getElementById("worksingle-Slider")
       const height = element.offsetHeight
-      element.style.marginTop = `${height}px`
+      image.style.marginTop = `${height}px`
     }
+  },
+  mounted() {
+    this.measureHeight()
+    window.addEventListener("resize", () => {
+      this.measureHeight()
+    })
   }
 }
 </script>
