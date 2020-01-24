@@ -49,6 +49,24 @@ header
   .logo
     height: 2.2em
 
+.close
+  position: fixed
+  display: flex
+  top: 0
+  right: 0
+  padding: var(--spacing-two)
+  padding-top: calc(#{var(--spacing-two)} + 1em)
+  padding-right: var(--spacing-three)
+  cursor: pointer
+  z-index: 999
+  &-Icon
+    display: inline
+    height: 100%
+    width: .8em
+    margin-right: 1em
+  p
+    line-height: 1em
+
 .icon
   height: 1.5em
   width: 1.5em
@@ -63,16 +81,6 @@ header
   svg
     height: 100%
     width: auto
-.close
-  position: fixed
-  top: 0
-  right: 0
-  height: 1.5em
-  width: 1.5em
-  margin: var(--spacing-two)
-  margin-top: var(--spacing-two)
-  cursor: pointer
-  z-index: 999
 
 form
   input
@@ -152,23 +160,14 @@ form
       padding-left: var(--spacing-three)
       padding-right: var(--spacing-three)
       padding-bottom: var(--spacing-three)
-      // @media screen and ( max-width: $breakpoint-mobile)
-      //   flex-direction: column-reverse
       p, h1
         flex-basis: calc(50% - 1em)
-        // @media screen and ( max-width: $breakpoint-mobile)
-        //   flex-basis: 100%
-        //   width: 100%
       h1
         text-align: right
-        // @media screen and ( max-width: $breakpoint-mobile)
-        //   text-align: left
-        //   margin-bottom: var(--spacing-one)
     &_Slider
       position: absolute
       width: 100%
       height: 100vh
-      margin-top: 50vh
       .image-Slider
         position: absolute
         top: 0

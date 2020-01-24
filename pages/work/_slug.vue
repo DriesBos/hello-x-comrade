@@ -14,9 +14,10 @@
         <slider :images="story.content.images" />
       </div>
     </section>
-    <nuxt-link to="/work" tag="div">
+    <nuxt-link to="/work" tag="div" class="close">
       <!-- prettier-ignore -->
-      <div class="svg close" v-html="require('~/assets/images/close.svg?include')" />
+      <div class="close-Icon" v-html="require('~/assets/images/close.svg?include')" />
+      <p>close</p>
     </nuxt-link>
   </div>
 </template>
