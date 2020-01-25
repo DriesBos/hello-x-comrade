@@ -38,6 +38,7 @@ export default {
         ":" +
         (amsTime.getMinutes() < 10 ? "0" : "") +
         amsTime.getMinutes()
+      // Check date object options: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString#Using_options
       // console.log(date)
       // console.log(offset)
       // console.log(amsTime)

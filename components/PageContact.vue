@@ -6,7 +6,7 @@
       <input type="text" placeholder="email" />
       <input type="text" placeholder="message" />
       <div class="button-Send">
-        <input type="submit" value="Send" />
+        <input type="submit" value="send" />
         <!-- prettier-ignore -->
         <div class="button-Send_Arrow" v-html="require('~/assets/images/arrow-right.svg?include')" />
       </div>
