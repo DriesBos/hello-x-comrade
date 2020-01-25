@@ -19,16 +19,19 @@
     <!-- prettier-ignore -->
     <div class="slider-Navigation">
       <a v-if="imageCount > 1" @click="previous" class="slider-Nav slider-Nav_Prev">
-        <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" />
+        <!-- <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" /> -->
       </a>
       <a v-if="imageCount > 1" @click="next" class="slider-Nav slider-Nav_Next">
-        <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" />
+        <!-- <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" /> -->
       </a>
     </div>
   </div>
 </template>
 
 <script>
+import JQuery from "jquery"
+let $ = JQuery
+
 export default {
   name: "SliderItem",
   props: {
@@ -47,8 +50,27 @@ export default {
       return this.images.filter(image => image).length
     }
   },
-  mounted() {},
+  mounted() {
+    $(".slider-Nav_Prev").on("mouseover", this.changeCursorToPrev)
+    $(".slider-Nav_Next").on("mouseover", this.changeCursorToNext)
+    $(".slider-Container").on("mouseleave", this.removeCursor)
+  },
   methods: {
+    changeCursorToPrev() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("cursor-Prev")
+      $cursor.removeClass("cursor-Next")
+    },
+    changeCursorToNext() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("cursor-Next")
+      $cursor.removeClass("cursor-Prev")
+    },
+    removeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("cursor-Next")
+      $cursor.removeClass("cursor-Prev")
+    },
     increment() {
       if (this.index >= this.images.length - 1) {
         this.index = 0
@@ -91,9 +113,9 @@ export default {
     height: 100%
   &-Nav
     position: absolute
-    padding: var(--spacing-two)
-    top: 50%
-    transform: translateY(-50%)
+    top: 0
+    bottom: 0
+    width: 50vw
     &_Prev
       left: 0
     &_Next

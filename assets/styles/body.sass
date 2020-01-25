@@ -8,7 +8,7 @@ main
   flex-direction: column
   justify-content: flex-end
   min-height: 100vh
-  cursor: none
+  // cursor: none
 
 header
   position: fixed
@@ -55,13 +55,21 @@ header
   border-radius: 100px
   background: white
   pointer-events: none
-  transition: background .3s ease, border .3s ease, width .3s ease, height .3s ease
+  transition: background .20s ease, border .20s ease, width .20s ease, height .20s ease
   z-index: 999
   border: 3px solid white
   &.hovers-container
     background: none
     width: 2.5em
     height: 2.5em
+  &-Next
+    background: none
+    border: none
+    cursor: url(/assets/images/cursor-right.png), auto
+  &-Prev
+    background: none
+    border: none
+    cursor: url(/assets/images/cursor-left.png), auto
 .hovered
   cursor: none
 
@@ -168,6 +176,7 @@ header
         left: 0
         height: 100%
         width: 100%
+        background: black
         img, picture img, picture source
           object-fit: cover
           width: 100%

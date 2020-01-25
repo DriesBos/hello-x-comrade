@@ -49,8 +49,8 @@ export default {
       let $cursor = $(".cursor")
       function moveCursor(e) {
         gsap.to($cursor, 0.3, {
-          left: e.pageX,
-          top: e.pageY
+          left: e.clientX,
+          top: e.clientY
         })
       }
       function centerCursor() {
