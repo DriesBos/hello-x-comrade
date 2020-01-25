@@ -9,7 +9,7 @@
           :key="post.content.id"
           :class="post.content.id"
         >
-          <nuxt-link :to="post.full_slug">
+          <nuxt-link class="hovered" :to="post.full_slug">
             <h1>
               {{ post.content.title }}
               <span class="mobile">/</span>
@@ -35,6 +35,8 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
@@ -66,6 +68,20 @@ export default {
   data() {
     return {
       stories: { content: {} }
+    }
+  },
+  mounted() {
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
+  },
+  methods: {
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("hovers-container")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("hovers-container")
     }
   }
 }

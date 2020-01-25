@@ -2,16 +2,16 @@
   <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
     <form>
-      <input type="text" placeholder="name" />
-      <input type="text" placeholder="email" />
-      <input type="text" placeholder="message" />
+      <input class="hovered" type="text" placeholder="name" />
+      <input class="hovered" type="text" placeholder="email" />
+      <input class="hovered" type="text" placeholder="message" />
       <div class="button-Send">
-        <input type="submit" value="send" />
+        <input class="hovered" type="submit" value="send" />
         <!-- prettier-ignore -->
-        <div class="button-Send_Arrow" v-html="require('~/assets/images/arrow-right.svg?include')" />
+        <div class="button-Send_Arrow hovered" v-html="require('~/assets/images/arrow-right.svg?include')" />
       </div>
     </form>
-    <nuxt-link to="/" tag="div" class="close">
+    <nuxt-link to="/" tag="div" class="close hovered">
       <!-- prettier-ignore -->
       <div class="close-Icon" v-html="require('~/assets/images/close.svg?include')" />
       <p>close</p>
@@ -20,9 +20,26 @@
 </template>
 
 <script>
+import JQuery from "jquery"
+let $ = JQuery
+
 export default {
   props: {
     blok: Object
+  },
+  mounted() {
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
+  },
+  methods: {
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("hovers-container")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("hovers-container")
+    }
   }
 }
 </script>

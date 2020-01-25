@@ -14,7 +14,7 @@
         <slider :images="story.content.images" />
       </div>
     </section>
-    <nuxt-link to="/work" tag="div" class="close">
+    <nuxt-link to="/work" tag="div" class="close hovered">
       <!-- prettier-ignore -->
       <div class="close-Icon" v-html="require('~/assets/images/close.svg?include')" />
       <p>close</p>
@@ -24,6 +24,8 @@
 
 <script>
 import storyblokLivePreview from "@/mixins/storyblokLivePreview"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
@@ -59,19 +61,29 @@ export default {
       toggleSlider: false
     }
   },
+  mounted() {
+    this.measureHeight()
+    window.addEventListener("resize", () => {
+      this.measureHeight()
+    })
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
+  },
   methods: {
     measureHeight() {
       const element = document.getElementById("worksingle-Text")
       const image = document.getElementById("worksingle-Slider")
       const height = element.offsetHeight
       image.style.marginTop = `${height}px`
+    },
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("hovers-container")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("hovers-container")
     }
-  },
-  mounted() {
-    this.measureHeight()
-    window.addEventListener("resize", () => {
-      this.measureHeight()
-    })
   }
 }
 </script>

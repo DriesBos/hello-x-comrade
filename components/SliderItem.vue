@@ -89,7 +89,6 @@ export default {
     position: relative
     z-index: 995
     height: 100%
-    cursor: pointer
   &-Nav
     position: absolute
     padding: var(--spacing-two)

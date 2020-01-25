@@ -2,11 +2,15 @@
   <main>
     <the-header :class="{ toggle: showHeader, close: showClose }" />
     <nuxt />
+    <div class="cursor"></div>
   </main>
 </template>
 
 <script>
 import TheHeader from "~/components/TheHeader.vue"
+import gsap from "gsap"
+import JQuery from "jquery"
+let $ = JQuery
 
 export default {
   components: {
@@ -30,13 +34,44 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener("scroll", this.onScroll)
+    this.customCursor()
+    window.addEventListener("scroll", this.toggleHEaderOnScroll)
+    document.addEventListener("mouseleave", this.mouseLeftDocument)
+    document.addEventListener("mouseenter", this.mouseEntersDocument)
+    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll)
   },
   methods: {
-    onScroll() {
+    customCursor() {
+      let $cursor = $(".cursor")
+      function moveCursor(e) {
+        gsap.to($cursor, 0.3, {
+          left: e.pageX,
+          top: e.pageY
+        })
+      }
+      function centerCursor() {
+        gsap.to($cursor, 0.3, {
+          left: $(window).width() / 2,
+          top: $(window).height() / 1
+        })
+      }
+
+      $(window).on("mousemove", moveCursor)
+      $(document).on("mouseleave", centerCursor)
+    },
+    changeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("hovers-container")
+    },
+    removeChangeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("hovers-container")
+    },
+    toggleHEaderOnScroll() {
       // https://medium.com/@Taha_Shashtari/hide-navbar-on-scroll-down-in-vue-fb85acbdddfe
       const currentScrollPosition =
         window.pageYOffset || document.documentElement.scrollTop
@@ -50,6 +85,16 @@ export default {
         return (this.showHeader = false)
       this.showHeader = currentScrollPosition < this.lastScrollPosition
       this.lastScrollPosition = currentScrollPosition
+    },
+    mouseLeftDocument() {
+      this.showHeader = false
+    },
+    mouseEntersDocument() {
+      if (this.$route.path === "/contact" || this.$route.name === "work-slug") {
+        this.showHeader = false
+      } else {
+        this.showHeader = true
+      }
     }
   }
 }
