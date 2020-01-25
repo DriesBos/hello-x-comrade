@@ -53,15 +53,15 @@ export default {
           top: e.clientY
         })
       }
-      function centerCursor() {
-        gsap.to($cursor, 0.3, {
-          left: $(window).width() / 2,
-          top: $(window).height() / 1
-        })
-      }
+      // function centerCursor() {
+      //   gsap.to($cursor, 0.3, {
+      //     left: $(window).width() / 2,
+      //     top: $(window).height() / 1
+      //   })
+      // }
 
       $(window).on("mousemove", moveCursor)
-      $(document).on("mouseleave", centerCursor)
+      // $(document).on("mouseleave", centerCursor)
     },
     changeCursor() {
       let $cursor = $(".cursor")

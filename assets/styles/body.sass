@@ -47,21 +47,21 @@ header
 
 .cursor
   position: fixed
-  width: 1.25em
-  height: 1.25em
+  width: 1.5em
+  height: 1.5em
   top: 50%
   left: 50%
   transform: translate(-50%, -50%)
   border-radius: 100px
   background: white
   pointer-events: none
-  transition: background .20s ease, border .20s ease, width .20s ease, height .20s ease
+  transition: background .15s ease, border .15s ease, width .15s ease, height .15s ease
   z-index: 999
-  border: 3px solid white
+  mix-blend-mode: difference
   &.hovers-container
     // background: none
-    width: 2.5em
-    height: 2.5em
+    width: 3.5em
+    height: 3.5em
   &-Next
     // background: none
     border: none
