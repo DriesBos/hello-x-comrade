@@ -59,17 +59,26 @@ header
   z-index: 999
   mix-blend-mode: difference
   &.hovers-container
-    // background: none
     width: 3.5em
     height: 3.5em
-  &-Next
-    // background: none
-    border: none
-    cursor: url(/assets/images/cursor-right.png), auto
-  &-Prev
-    // background: none
-    border: none
-    cursor: url(/assets/images/cursor-left.png), auto
+  & .icon-Prev, & .icon-Next
+    display: none
+  &.cursor-Prev
+    // mix-blend-mode: unset !important
+    background: none
+    width: auto
+    .icon-Prev
+      display: block
+      height: 3.5em
+  &.cursor-Next
+    // mix-blend-mode: unset !important
+    background: none
+    width: auto
+    height: auto
+    .icon-Next
+      display: block
+      height: 3.5em
+      transform: rotate(180deg)
 .hovered
   cursor: none
 

@@ -8,7 +8,10 @@
       <div class="button-Send">
         <input class="hovered" type="submit" value="send" />
         <!-- prettier-ignore -->
-        <div class="button-Send_Arrow hovered" v-html="require('~/assets/images/arrow-right.svg?include')" />
+        <div
+          class="button-Send_Arrow hovered"
+          v-html="require('~/assets/images/arrow-right.svg?include')"
+        />
       </div>
     </form>
     <nuxt-link to="/" tag="div" class="close hovered">

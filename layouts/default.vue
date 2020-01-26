@@ -2,7 +2,11 @@
   <main>
     <the-header :class="{ toggle: showHeader, close: showClose }" />
     <nuxt />
-    <div class="cursor"></div>
+    <!-- prettier-ignore -->
+    <div class="cursor">
+      <img class="icon-Prev" src="~/assets/images/arrow-medium.svg" />
+      <img class="icon-Next" src="~/assets/images/arrow-medium.svg" />
+    </div>
   </main>
 </template>
 

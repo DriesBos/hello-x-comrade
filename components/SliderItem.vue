@@ -18,12 +18,8 @@
     </transition-group>
     <!-- prettier-ignore -->
     <div class="slider-Navigation">
-      <a v-if="imageCount > 1" @click="previous" class="slider-Nav slider-Nav_Prev">
-        <!-- <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" /> -->
-      </a>
-      <a v-if="imageCount > 1" @click="next" class="slider-Nav slider-Nav_Next">
-        <!-- <div class="icon arrow-small" v-html="require('~/assets/images/arrow-small.svg?include')" /> -->
-      </a>
+      <a v-if="imageCount > 1" @click="previous" class="slider-Nav slider-Nav_Prev" />
+      <a v-if="imageCount > 1" @click="next" class="slider-Nav slider-Nav_Next" />
     </div>
   </div>
 </template>
@@ -53,6 +49,9 @@ export default {
   mounted() {
     $(".slider-Nav_Prev").on("mouseover", this.changeCursorToPrev)
     $(".slider-Nav_Next").on("mouseover", this.changeCursorToNext)
+    $(".slider-Container").on("mouseleave", this.removeCursor)
+  },
+  destroyed() {
     $(".slider-Container").on("mouseleave", this.removeCursor)
   },
   methods: {
@@ -109,7 +108,6 @@ export default {
 .slider
   &-Container
     position: relative
-    z-index: 995
     height: 100%
   &-Nav
     position: absolute
@@ -120,15 +118,11 @@ export default {
       left: 0
     &_Next
       right: 0
-      svg
-        transform: rotate(180deg)
-
 
 .image-Slider
   display: flex
   justify-content: center
   align-items: center
-  // position: absolute
   top: 0
   left: 0
   height: 100%
@@ -142,7 +136,7 @@ export default {
       max-width: 100%
       max-height: 100%
 .slider-enter-active, .slider-leave-active
-  transition: all 2s ease
+  transition: opacity 2s ease
 .slider-enter, .slider-leave-to
   opacity: 0
 </style>
