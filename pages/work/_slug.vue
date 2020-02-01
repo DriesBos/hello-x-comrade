@@ -29,6 +29,7 @@ let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
+  scrollToTop: true,
   asyncData(context) {
     let endpoint = `cdn/stories/work/${context.params.slug}`
 

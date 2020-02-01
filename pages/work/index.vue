@@ -40,6 +40,7 @@ let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
+  scrollToTop: true,
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/", {
