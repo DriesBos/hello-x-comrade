@@ -75,6 +75,8 @@ export default {
       const element = document.getElementById("worksingle-Text")
       const image = document.getElementById("worksingle-Slider")
       const height = element.offsetHeight
+      console.log(element)
+      console.log(height)
       image.style.marginTop = `${height}px`
     },
     changeCursor() {

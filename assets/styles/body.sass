@@ -194,17 +194,17 @@ main
       display: flex
       justify-content: space-between
       align-items: flex-end
-      margin-top: var(--top-padding-noheader)
+      padding-top: var(--top-padding-noheader)
       padding-left: var(--side-padding)
       padding-right: var(--side-padding)
-      margin-bottom: var(--spacing-two)
+      padding-bottom: var(--spacing-two)
       @media screen and ( max-width: $breakpoint-mobile)
         flex-direction: column-reverse
         align-items: flex-start
         justify-content: center
-        height: 100vh
+        min-height: 100vh
         margin-top: var(--spacing-two)
-        margin-bottom: var(--spacing-two)
+        padding-bottom: var(--spacing-two)
         h1
           margin-bottom: .5em
       @media screen and ( min-width: $breakpoint-mobile)
