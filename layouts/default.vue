@@ -1,6 +1,6 @@
 <template>
   <main>
-    <the-header :class="{ toggle: showHeader, close: showClose }" />
+    <the-header :class="{ toggle: showHeader, isClose: showClose }" />
     <nuxt />
     <!-- prettier-ignore -->
     <div class="cursor">
