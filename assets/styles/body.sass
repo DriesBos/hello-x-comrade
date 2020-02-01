@@ -10,40 +10,66 @@ main
   min-height: 100vh
   cursor: none
 
-header
+.header
   position: fixed
   left: 0
   top: 0
   right: 0
-  display: flex
-  justify-content: space-between
-  align-items: flex-end
-  margin-left: var(--spacing-three)
-  margin-right: var(--spacing-three)
-  padding-top: var(--spacing-two)
-  padding-bottom: var(--spacing-one)
-  border-bottom: 1px solid white
-  transform: translate3d(0, -101%, 0)
-  transition: 0.3s transform ease
-  will-change: transform
-  &.toggle
-    transform: translate3d(0, 0, 0)
-  &.close
-    transform: translate3d(0, 0, 0)
-  @media screen and ( max-width: $breakpoint-mobile)
-    flex-direction: row-reverse
-    align-items: center
-    border-bottom: 0
-    padding-bottom: 0
-  nav
+  &-Desktop
+    display: flex
+    justify-content: space-between
+    align-items: flex-end
+    margin-left: var(--side-padding)
+    margin-right: var(--side-padding)
+    padding-top: var(--spacing-two)
+    padding-bottom: var(--spacing-one)
+    transform: translate3d(0, -101%, 0)
+    transition: 0.3s transform ease
+    will-change: transform
+    border-bottom: 1px solid white
     ul
       li
         padding-right: 2em
         display: inline-block
       li:last-child
         padding-right: 0
-  .logo
-    height: 2.2em
+    .logo
+      height: 2.2em
+    @media screen and ( max-width: $breakpoint-mobile)
+      padding-top: var(--spacing-one)
+      flex-direction: row-reverse
+      align-items: center
+      border-bottom: 0
+      padding-bottom: 0
+  &-Mobile
+    &_Toggle
+      position: fixed
+      top: 0
+      right: 0
+      padding: var(--spacing-one)
+    &_Content
+      position: fixed
+      top: 0
+      right: 0
+      left: 0
+      bottom: 0
+      height: 100vh
+      width: 100vw
+      display: flex
+      flex-direction: column
+      justify-content: flex-end
+      background: black
+      padding: var(--spacing-one)
+      li
+        line-height: 12.5vw
+  &.toggle
+    .header-Desktop
+      transform: translate3d(0, 0, 0)
+  &.close
+    .header-Desktop
+      transform: translate3d(0, 0, 0)
+    .header-Mobile
+      display: none
 
 .cursor
   position: fixed
@@ -77,29 +103,36 @@ header
       display: block
       height: 3.5em
       transform: rotate(180deg)
+  @media ( hover: none )
+    display: none
+
 .hovered
   cursor: none
 
 .dynamic-Text
-  margin-left: var(--spacing-three)
-  margin-right: var(--spacing-three)
+  padding-left: var(--side-padding)
+  padding-right: var(--side-padding)
 
 .close
   position: fixed
   display: flex
   top: 0
   right: 0
-  padding: var(--spacing-two)
-  padding-top: calc(#{var(--spacing-two)} + 1.2em)
-  padding-right: var(--spacing-three)
+  padding: var(--spacing-one)
+  padding-top: calc(#{var(--spacing-two)} + .75em)
+  padding-right: var(--side-padding)
+  padding-bottom: 0
   z-index: 999
+  line-height: 1.5
+  @media screen and ( max-width: $breakpoint-mobile)
+    padding: var(--side-padding)
   &-Icon
     display: inline
     height: 100%
     width: .7em
     margin-right: .7em
-  p
-    line-height: 1em
+    @media screen and ( max-width: $breakpoint-mobile)
+      display: none
 
 .icon
   height: 1.5em
@@ -118,13 +151,13 @@ header
 .content
   &-Page
     display: block
-    padding-top: var(--top-padding)
-    padding-bottom: var(--spacing-three)
+    margin-top: var(--top-padding)
+    margin-bottom: var(--bottom-padding)
   &-Work
-    padding-top: var(--top-padding)
-    padding-left: var(--spacing-three)
-    padding-right: var(--spacing-three)
-    padding-bottom: var(--spacing-three)
+    margin-top: var(--top-padding)
+    padding-left: var(--side-padding)
+    padding-right: var(--side-padding)
+    margin-bottom: var(--bottom-padding)
     a
       display: inline-flex
       align-items: baseline
@@ -134,10 +167,7 @@ header
           text-decoration: underline
         & ~ .image
           display: block
-    h2
-      margin-right: var(--spacing-two)
-      display: inline
-    h2, p
+    h1, h2, h3
       display: inline
     span
       @media screen and ( max-width: $breakpoint-mobile)
@@ -146,10 +176,11 @@ header
       position: fixed
       top: 0
       right: 0
-      width: 50vw
       height: 100vh
       display: none
       z-index: -1
+      @media screen and ( min-width: $breakpoint-mobile)
+        width: 50vw
       img
         width: 100%
         height: 100%
@@ -165,15 +196,25 @@ header
       display: flex
       justify-content: space-between
       align-items: flex-end
-      padding-top: var(--top-padding-noheader)
-      padding-left: var(--spacing-three)
-      padding-right: var(--spacing-three)
-      padding-bottom: var(--spacing-two)
-      p, h1
-        flex-basis: calc(50% - 1em)
-      h1
-        text-align: right
-        transform: translateY(.2em)
+      margin-top: var(--top-padding-noheader)
+      padding-left: var(--side-padding)
+      padding-right: var(--side-padding)
+      margin-bottom: var(--spacing-two)
+      @media screen and ( max-width: $breakpoint-mobile)
+        flex-direction: column-reverse
+        align-items: flex-start
+        justify-content: center
+        height: 100vh
+        margin-top: var(--spacing-two)
+        margin-bottom: var(--spacing-two)
+        h1
+          margin-bottom: .5em
+      @media screen and ( min-width: $breakpoint-mobile)
+        h1, p
+          flex-basis: calc(50% - 1em)
+        h1
+          text-align: right
+          transform: translateY(.2em)
     &_Slider
       position: absolute
       width: 100%
@@ -190,10 +231,10 @@ header
           width: 100%
           height: 100%
   &-About
-    padding-top: var(--top-padding)
-    padding-left: var(--spacing-three)
-    padding-right: var(--spacing-three)
-    padding-bottom: var(--spacing-three)
+    margin-top: var(--top-padding)
+    padding-left: var(--side-padding)
+    padding-right: var(--side-padding)
+    margin-bottom: var(--bottom-padding)
     .blok
       p
         margin-bottom: var(--spacing-two)
@@ -222,10 +263,10 @@ header
           @media screen and ( max-width: $breakpoint-mobile)
             padding-right: 0
   &-Synchronize
-    padding-top: var(--spacing-three)
-    padding-left: var(--spacing-three)
-    padding-right: var(--spacing-three)
-    padding-bottom: var(--spacing-three)
+    margin-top: var(--spacing-three)
+    padding-left: var(--side-padding)
+    padding-right: var(--side-padding)
+    margin-bottom: var(--bottom-padding)
     ul
       display: flex
       flex-direction: column
@@ -245,13 +286,13 @@ header
           margin-left: .5em
           flex-shrink: 0
           @media screen and ( max-width: $breakpoint-mobile)
-            margin-top: var(--spacing-two)
+            margin-top: var(--spacing-one)
 
   &-Contact
-    padding-top: var(--top-padding-noheader)
-    margin-left: var(--spacing-three)
-    margin-right: var(--spacing-three)
-    margin-bottom: var(--top-padding-noheader)
+    margin-top: var(--top-padding-noheader)
+    margin-left: var(--side-padding)
+    margin-right: var(--side-padding)
+    margin-bottom: var(--bottom-padding)
     .markdown
       margin-bottom: var(--spacing-two)
       p
@@ -270,11 +311,13 @@ header
         align-items: center
         margin-top: var(--spacing-three)
         text-align: right
-        @media screen and ( max-width: $breakpoint-mobile)
-          justify-content: flex-start
+        // @media screen and ( max-width: $breakpoint-mobile)
+        //   justify-content: flex-start
         input
+          padding-right: .3em
           text-align: right
-          padding-right: var(--spacing-two)
+          // @media screen and ( max-width: $breakpoint-mobile)
+          //   width: auto
         &_Arrow
           width: auto
           flex-shrink: 0
@@ -302,9 +345,8 @@ header
     line-height: 1.18
 
 .desktop
-  display: block
   @media screen and ( max-width: $breakpoint-mobile)
-    display: none
+    display: none !important
 .mobile
   display: none
   @media screen and ( max-width: $breakpoint-mobile)

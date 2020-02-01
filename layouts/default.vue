@@ -31,9 +31,12 @@ export default {
     $route() {
       // Check if given route is true, if it is then hide Nav.
       if (this.$route.path === "/contact" || this.$route.name === "work-slug") {
-        return (this.showHeader = false)
+        console.log("RIGHT PATH")
+        this.showHeader = false
+        this.showClose = true
       } else {
-        return (this.showHeader = true)
+        this.showHeader = true
+        this.showClose = false
       }
     }
   },
