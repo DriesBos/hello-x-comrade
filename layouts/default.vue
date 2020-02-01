@@ -1,7 +1,9 @@
 <template>
   <main>
     <the-header :class="{ toggle: showHeader, isClose: showClose }" />
-    <nuxt />
+    <transition name="pages" mode="out-in">
+      <nuxt />
+    </transition>
     <!-- prettier-ignore -->
     <div class="cursor">
       <img class="icon-Prev" src="~/assets/images/arrow-medium.svg" />

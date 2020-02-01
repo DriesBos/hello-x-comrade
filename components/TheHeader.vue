@@ -18,7 +18,7 @@
       <!-- prettier-ignore -->
       <transition name="headerMobileContent">
         <ul v-if="showHeaderMobile" @click="toggleMobileHeader" class="header-Mobile_Content">
-          <nuxt-link class="hovered" to="/work" tag="li">
+          <nuxt-link class="hovered" to="/" tag="li">
             <h1>Home</h1>
           </nuxt-link>
           <nuxt-link class="hovered" to="/work" tag="li">
