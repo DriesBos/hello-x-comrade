@@ -164,6 +164,11 @@ main
           text-decoration: underline
         & ~ .image
           display: block
+        @media ( hover: none )
+          h2
+            text-decoration: none
+          & ~ .image
+            display: none
     h1, h2, h3
       display: inline
     span
@@ -297,11 +302,14 @@ main
     form
       input
         width: 100%
-        line-height: 1em
+        line-height: 1.5
       input::placeholder
         color: white
       input[type="text"]
         border-bottom: 1px solid white
+        @media screen and ( max-width: $breakpoint-mobile)
+          border-bottom: 2px solid white
+          border-radius: 0
       .button-Send
         display: flex
         justify-content: flex-end
