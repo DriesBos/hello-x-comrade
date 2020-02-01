@@ -53,7 +53,6 @@ main
       right: 0
       left: 0
       bottom: 0
-      height: 100vh
       width: 100vw
       display: flex
       flex-direction: column
@@ -174,7 +173,7 @@ main
       position: fixed
       top: 0
       right: 0
-      height: 100vh
+      bottom: 0
       display: none
       z-index: -1
       @media screen and ( min-width: $breakpoint-mobile)
@@ -194,7 +193,7 @@ main
       display: flex
       justify-content: space-between
       align-items: flex-end
-      padding-top: var(--top-padding-noheader)
+      padding-top: var(--top-padding)
       padding-left: var(--side-padding)
       padding-right: var(--side-padding)
       padding-bottom: var(--spacing-two)
@@ -202,7 +201,7 @@ main
         flex-direction: column-reverse
         align-items: flex-start
         justify-content: center
-        min-height: 100vh
+        min-height: -webkit-fill-available
         margin-top: var(--spacing-two)
         padding-bottom: var(--spacing-two)
         h1
@@ -261,7 +260,7 @@ main
           @media screen and ( max-width: $breakpoint-mobile)
             padding-right: 0
   &-Synchronize
-    margin-top: var(--spacing-three)
+    margin-top: var(--top-padding)
     padding-left: var(--side-padding)
     padding-right: var(--side-padding)
     margin-bottom: var(--bottom-padding)
@@ -287,7 +286,7 @@ main
             margin-top: var(--spacing-one)
 
   &-Contact
-    margin-top: var(--top-padding-noheader)
+    margin-top: var(--top-padding)
     margin-left: var(--side-padding)
     margin-right: var(--side-padding)
     margin-bottom: var(--bottom-padding)
