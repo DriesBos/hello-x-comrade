@@ -18,8 +18,8 @@
     </transition-group>
     <!-- prettier-ignore -->
     <div class="slider-Navigation">
-      <a v-if="imageCount > 1" @click="previous" class="slider-Nav slider-Nav_Prev" />
-      <a v-if="imageCount > 1" @click="next" class="slider-Nav slider-Nav_Next" />
+      <a v-if="imageCount > 1" class="slider-Nav slider-Nav_Prev"  @click="previous"  />
+      <a v-if="imageCount > 1" class="slider-Nav slider-Nav_Next" @click="next"  />
     </div>
   </div>
 </template>
