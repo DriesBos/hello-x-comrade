@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <nav class="header-Desktop">
+    <nav class="header-Desktop desktop">
       <!-- prettier-ignore -->
       <ul>
         <nuxt-link class="hovered" to="/work" tag="li">Work</nuxt-link>
