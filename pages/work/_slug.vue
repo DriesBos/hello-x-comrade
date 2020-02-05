@@ -9,7 +9,6 @@
       <div
         id="worksingle-Slider"
         class="content-Worksingle_Slider slider-blok"
-        :class="{ active: toggleSlider }"
       >
         <slider :images="story.content.images" />
       </div>
@@ -58,8 +57,7 @@ export default {
   },
   data() {
     return {
-      story: { content: {} },
-      toggleSlider: false
+      story: { content: {} }
     }
   },
   mounted() {
