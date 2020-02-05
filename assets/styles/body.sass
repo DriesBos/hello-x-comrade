@@ -350,9 +350,18 @@ main
     line-height: 1.18
 
 .desktop
+  display: none
   @media screen and ( max-width: $breakpoint-mobile)
     display: none !important
 .mobile
   display: none
   @media screen and ( max-width: $breakpoint-mobile)
+    display: block
+.horizontal
+  display: none
+  @media screen and (orientation: landscape)
+    display: block
+.vertical
+  display: none
+  @media screen and (orientation: portrait)
     display: block

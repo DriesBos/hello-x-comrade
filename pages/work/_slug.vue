@@ -10,7 +10,9 @@
         id="worksingle-Slider"
         class="content-Worksingle_Slider slider-blok"
       >
-        <slider :images="story.content.images" />
+        <slider class="horizontal" :images="story.content.images" />
+        <slider class="vertical" :images="story.content.images_mobile" />
+
       </div>
     </section>
     <nuxt-link to="/work" tag="div" class="close hovered">
