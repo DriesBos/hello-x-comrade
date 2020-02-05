@@ -28,17 +28,14 @@ li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, time
 
 p, li // Small text
   font-size: 1em
-
-// li, input
-//   line-height: 1
-
-h1, input, .dynamic-Text p, .dynamic-Text h1, .dynamic-Text h2, .dynamic-Text h3, .dynamic-Text h4 // Viewport sizing
+h1, // Viewport sizing
   font-size: 8vw
   line-height: 9.5vw
   @media screen and ( max-width: $breakpoint-mobile)
     font-size: 11vw
     line-height: 12.5vw
-h2
+h2, input, .dynamic-Text p, .dynamic-Text h1, .dynamic-Text h2, .dynamic-Text h3, .dynamic-Text h4,
+.blok-one p, .blok-one h1, .blok-one h2, .blok-one h3, .blok-one h4
   font-size: 3.583em // Large text, home, about, contact and service pages
   line-height: 1.18
 h3

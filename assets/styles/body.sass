@@ -248,9 +248,6 @@ main
         line-height: 1.5
     .blok-one
       margin-bottom: var(--spacing-three)
-      .markdown p
-        font-size: 8vmin
-        line-height: 9.5vmin
     .second
       display: flex
       @media screen and ( max-width: $breakpoint-mobile)
@@ -330,24 +327,6 @@ main
           svg
             height: 100%
             width: 20vmin
-
-// TODO Fix this (production doesnt render p, h1, h2 tags correctly)
-.content
-  &-page
-    &-about,
-    .markdown
-      p h1, h2, h3
-        font-size: 3.583em // Large text, home, contact and service pages
-        line-height: 1.18
-  &-about
-    .blok-one
-      p, h1, h2, h3
-        font-size: 2.074em // Medium text, about page
-        line-height: 1.28
-.dynamic-text
-  p h1, h2, h3
-    font-size: 3.583em // Large text, home, contact and service pages
-    line-height: 1.18
 
 // Important since overriding interactions
 .desktop
