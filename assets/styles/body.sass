@@ -349,6 +349,7 @@ main
     font-size: 3.583em // Large text, home, contact and service pages
     line-height: 1.18
 
+// Important since overriding interactions
 .desktop
   display: none
   @media screen and ( max-width: $breakpoint-mobile)
@@ -356,12 +357,12 @@ main
 .mobile
   display: none
   @media screen and ( max-width: $breakpoint-mobile)
-    display: block
+    display: block !important
 .horizontal
   display: none
   @media screen and (orientation: landscape)
-    display: block
+    display: block !important
 .vertical
   display: none
   @media screen and (orientation: portrait)
-    display: block
+    display: block !important
