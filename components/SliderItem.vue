@@ -76,7 +76,6 @@ export default {
       } else {
         this.index += 1
       }
-      console.log("INCREMENT", this.index, this.currentImage)
     },
     decrement() {
       if (this.index > 0) {
