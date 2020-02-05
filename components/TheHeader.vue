@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <nav class="header-Desktop desktop">
+    <nav class="header-Desktop">
       <!-- prettier-ignore -->
       <ul>
         <nuxt-link class="hovered" to="/work" tag="li">Work</nuxt-link>
@@ -11,13 +11,13 @@
       </ul>
       <!-- prettier-ignore -->
       <nuxt-link class="hovered" to="/" tag="div">
-        <div class="svg logo desktop" v-html="require('~/assets/images/logo.svg?include')" />
+        <div class="svg logo" v-html="require('~/assets/images/logo.svg?include')" />
       </nuxt-link>
     </nav>
     <nav class="header-Mobile mobile">
       <!-- prettier-ignore -->
       <transition name="headerMobileContent">
-        <ul v-if="showHeaderMobile" class="header-Mobile_Content"  @click="toggleMobileHeader">
+        <ul v-if="showHeaderMobile" class="header-Mobile_Content" @click="toggleMobileHeader">
           <nuxt-link class="hovered" to="/" tag="li">
             <h1>Home</h1>
           </nuxt-link>

@@ -351,18 +351,14 @@ main
 
 // Important since overriding interactions
 .desktop
-  display: none
   @media screen and ( max-width: $breakpoint-mobile)
-    display: none !important
+    display: none
 .mobile
-  display: none
-  @media screen and ( max-width: $breakpoint-mobile)
-    display: block !important
+  @media screen and ( min-width: $breakpoint-mobile)
+    display: none
 .horizontal
-  display: none
-  @media screen and (orientation: landscape)
-    display: block !important
-.vertical
-  display: none
   @media screen and (orientation: portrait)
-    display: block !important
+    display: none
+.vertical
+  @media screen and (orientation: landscape)
+    display: none
