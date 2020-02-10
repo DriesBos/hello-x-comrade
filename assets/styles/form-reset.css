@@ -11,6 +11,7 @@ textarea {
   white-space: normal;
   background: none;
   line-height: 1;
+  border-radius: 0;
 
   /* Browsers have different default form fonts */
   font-size: 13px;

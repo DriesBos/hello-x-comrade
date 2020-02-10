@@ -27,9 +27,7 @@ main
     transform: translate3d(0, -101%, 0)
     transition: 0.3s transform ease
     will-change: transform
-    border-bottom: 1px solid white
-    // @media screen and ( max-width: $breakpoint-tablet)
-    //   padding-top: var(--spacing-one)
+    border-bottom: var(--border-bottom)
     ul
       li
         margin-right: 2em
@@ -239,7 +237,7 @@ main
       h1
         padding-bottom: var(--spacing-one)
         margin-bottom: var(--spacing-one)
-        border-bottom: 1px solid white
+        border-bottom: var(--border-bottom)
         font-size: 1em
         line-height: 1.5
     .blok-one
@@ -249,7 +247,6 @@ main
       @media screen and ( max-width: $breakpoint-mobile)
         flex-direction: column
       > div
-        // border: 1px solid green
         flex-basis: 50%
         @media screen and ( max-width: $breakpoint-mobile)
           flex-basis: 100%
@@ -267,7 +264,6 @@ main
       flex-direction: column
       justify-content: flex-end
       li
-        // border: 1px solid blue
         display: flex
         justify-content: flex-start
         align-items: flex-end
@@ -299,23 +295,16 @@ main
       input::placeholder
         color: white
       input[type="text"]
-        border-bottom: 1px solid white
-        @media screen and ( max-width: $breakpoint-mobile)
-          border-bottom: 2px solid white
-          border-radius: 0
+        border-bottom: var(--border-bottom)
       .button-Send
         display: flex
         justify-content: flex-end
         align-items: center
         margin-top: var(--spacing-three)
         text-align: right
-        // @media screen and ( max-width: $breakpoint-mobile)
-        //   justify-content: flex-start
         input
           padding-right: .3em
           text-align: right
-          // @media screen and ( max-width: $breakpoint-mobile)
-          //   width: auto
         &_Arrow
           width: auto
           flex-shrink: 0
