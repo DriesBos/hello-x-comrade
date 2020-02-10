@@ -24,14 +24,18 @@ main
     margin-right: var(--side-padding)
     padding-top: var(--spacing-two)
     padding-bottom: var(--spacing-one)
-    transform: translate3d(0, -101%, 0)
+    // transform: translate3d(0, -101%, 0)
     transition: 0.3s transform ease
     will-change: transform
     border-bottom: 1px solid white
+    @media screen and ( max-width: $breakpoint-tablet)
+      padding-top: var(--spacing-one)
     ul
       li
-        padding-right: 2em
+        margin-right: 2em
         display: inline-block
+        @media screen and ( max-width: $breakpoint-tablet)
+          margin-right: 1.6em
       li:last-child
         padding-right: 0
     .logo
