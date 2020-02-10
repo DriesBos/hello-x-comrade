@@ -34,13 +34,14 @@ h1, // Viewport sizing
   @media screen and ( max-width: $breakpoint-mobile)
     font-size: 11vw
     line-height: 12.5vw
-h2, input, .dynamic-Text p, .dynamic-Text h1, .dynamic-Text h2, .dynamic-Text h3, .dynamic-Text h4,
+h2, h3, h4, h5, input, .dynamic-Text p, .dynamic-Text h1, .dynamic-Text h2, .dynamic-Text h3, .dynamic-Text h4,
 .blok-one p, .blok-one h1, .blok-one h2, .blok-one h3, .blok-one h4
   font-size: 3.583em // Large text, home, about, contact and service pages
   line-height: 1.18
-h3
-  font-size: 2.074em // Medium text, about page
-  line-height: 1.28
+  @media screen and ( max-width: $breakpoint-mobile)
+    font-size: 11vw
+    line-height: 12.5vw
+
 a
   color: black
   text-decoration: underline
