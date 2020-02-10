@@ -33,7 +33,6 @@ export default {
     $route() {
       // Check if given route is true, if it is then hide Nav.
       if (this.$route.path === "/contact" || this.$route.name === "work-slug") {
-        console.log("RIGHT PATH")
         this.showHeader = false
         this.showClose = true
       } else {
@@ -44,6 +43,7 @@ export default {
   },
   mounted() {
     this.customCursor()
+    this.routeCheck()
     window.addEventListener("scroll", this.toggleHEaderOnScroll)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
@@ -95,6 +95,16 @@ export default {
         this.showHeader = false
       } else {
         this.showHeader = true
+      }
+    },
+    routeCheck() {
+      // Check if given route is true, if it is then hide Nav.
+      if (this.$route.path === "/contact" || this.$route.name === "work-slug") {
+        this.showHeader = false
+        this.showClose = true
+      } else {
+        this.showHeader = true
+        this.showClose = false
       }
     }
   }
