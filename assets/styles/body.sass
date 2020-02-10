@@ -4,17 +4,23 @@ body
   background: black
 
 main
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
   display: flex
   flex-direction: column
-  justify-content: flex-end
-  min-height: 100vh
+  justify-content: flex-start
   cursor: none
+  overflow-y: auto
 
 .header
   position: fixed
   left: 0
   top: 0
   right: 0
+  mix-blend-mode: difference
   &-Desktop
     display: flex
     justify-content: space-between
@@ -54,10 +60,14 @@ main
       width: 100vw
       display: flex
       flex-direction: column
-      justify-content: flex-end
+      justify-content: flex-start
       background: black
-      padding: var(--spacing-one)
+      padding-top: var(--top-padding)
+      padding-left: var(--side-padding)
+      padding-right: var(--side-padding)
+      padding-bottom: var(--bottom-padding)
       border-top: 1px solid white
+      overflow-y: auto
       h1
         line-height: 1.5em
     @media screen and ( min-width: $breakpoint-tablet)
