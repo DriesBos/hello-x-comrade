@@ -27,6 +27,8 @@ main
     transition: 0.3s transform ease
     will-change: transform
     border-bottom: var(--border-bottom)
+    @media screen and ( max-width: $breakpoint-tablet)
+      display: none
     ul
       li
         margin-right: 2em
@@ -37,12 +39,6 @@ main
         padding-right: 0
     .logo
       height: 2.2em
-    // @media screen and ( max-width: $breakpoint-mobile)
-    //   padding-top: var(--spacing-one)
-    //   flex-direction: row-reverse
-    //   align-items: center
-    //   border-bottom: 0
-    //   padding-bottom: 0
   &-Mobile
     &_Toggle
       position: fixed
@@ -64,6 +60,8 @@ main
       border-top: 1px solid white
       h1
         line-height: 1.5em
+    @media screen and ( min-width: $breakpoint-tablet)
+      display: none
   &.toggle
     .header-Desktop
       transform: translate3d(0, 0, 0)
@@ -159,6 +157,14 @@ main
     padding-left: var(--side-padding)
     padding-right: var(--side-padding)
     margin-bottom: var(--bottom-padding)
+    &_Slash
+      display: none
+      @media screen and ( max-width: $breakpoint-mobile)
+        display: inline
+    &_Year
+      display: none
+      @media screen and ( min-width: $breakpoint-mobile)
+        display: inline
     a
       display: inline-flex
       align-items: baseline
@@ -206,10 +212,10 @@ main
       padding-top: var(--top-padding)
       padding-left: var(--side-padding)
       padding-right: var(--side-padding)
-      padding-bottom: 8vmin
+      padding-bottom: var(--spacing-three)
       p
         max-width: 48em
-        margin-top: 1em
+        margin-top: var(--spacing-three)
     &_Slider
       position: absolute
       width: 100%
@@ -312,13 +318,6 @@ main
             height: 100%
             width: 20vmin
 
-// Important since overriding interactions
-.desktop
-  @media screen and ( max-width: $breakpoint-tablet)
-    display: none
-.mobile
-  @media screen and ( min-width: $breakpoint-tablet)
-    display: none
 .horizontal
   @media screen and (orientation: portrait)
     display: none

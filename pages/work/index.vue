@@ -12,9 +12,9 @@
           <nuxt-link class="hovered" :to="post.full_slug">
             <h1>
               {{ post.content.title }}
-              <span class="mobile">/</span>
+              <span class="content-Work_Slash">/</span>
             </h1>
-            <p class="desktop">/{{ post.content.year }}</p>
+            <p class="content-Work_Year">/{{ post.content.year }}</p>
           </nuxt-link>
           <picture class="image">
             <source
