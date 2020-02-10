@@ -21,6 +21,7 @@ main
   top: 0
   right: 0
   mix-blend-mode: difference
+  z-index: 999
   &-Desktop
     display: flex
     justify-content: space-between
@@ -158,6 +159,9 @@ main
     width: auto
 
 .content
+  position: relative
+  // background: green
+  margin-top: auto
   &-Page
     display: block
     margin-top: var(--top-padding)
@@ -247,8 +251,6 @@ main
     padding-right: var(--side-padding)
     margin-bottom: var(--bottom-padding)
     .blok
-      p
-        margin-bottom: var(--spacing-two)
       h1
         padding-bottom: var(--spacing-one)
         margin-bottom: var(--spacing-one)
@@ -257,6 +259,13 @@ main
         line-height: 1.5
     .blok-one
       margin-bottom: var(--spacing-three)
+    @media screen and ( max-width: $breakpoint-mobile)
+      .blok-two
+        p
+          margin-bottom: var(--spacing-two)
+    .blok-three
+      p
+        margin-bottom: var(--spacing-two)
     .second
       display: flex
       @media screen and ( max-width: $breakpoint-mobile)
