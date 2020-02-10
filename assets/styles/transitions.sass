@@ -14,7 +14,7 @@
 
     // Header mobile content transition
 .headerMobileContent-enter-active, .headerMobileContent-leave-active
-  transition: opacity 1s ease
+  transition: transform .33s ease,
 
 .headerMobileContent-enter, .headerMobileContent-leave-to
-  opacity: 0
+  transform: translate3d(0, 100%, 0)

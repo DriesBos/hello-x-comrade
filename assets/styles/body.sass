@@ -9,6 +9,7 @@ main
   justify-content: flex-end
   min-height: 100vh
   cursor: none
+  overflow: hidden // For sliding panel transitions
 
 .header
   position: fixed
@@ -49,7 +50,7 @@ main
       padding: var(--spacing-one)
     &_Content
       position: fixed
-      top: 0
+      top: -1px
       right: 0
       left: 0
       bottom: 0
@@ -59,6 +60,7 @@ main
       justify-content: flex-end
       background: black
       padding: var(--spacing-one)
+      border-top: 1px solid white
       h1
         line-height: 1.5em
   &.toggle
