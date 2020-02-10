@@ -1,18 +1,23 @@
 <template>
   <div class="content">
-    <section class="content-Worksingle">
+    <!-- prettier-ignore -->
+    <section id="worksingle-Page" class="content-Worksingle" @click="toggleSliderOnClick">
       <div id="worksingle-Text" class="content-Worksingle_Text">
-        <p>{{ story.content.text }}</p>
         <h1>{{ story.content.title }}</h1>
+        <p>{{ story.content.text }}</p>
       </div>
       <!-- prettier-ignore -->
-      <div
-        id="worksingle-Slider"
-        class="content-Worksingle_Slider slider-blok"
-      >
-        <slider class="horizontal" :images="story.content.images" />
-        <slider class="vertical" :images="story.content.images_mobile" />
-
+      <div id="worksingle-Slider" class="content-Worksingle_Slider slider-blok">
+        <slider
+          id="worksingle-SliderWindowHorizontal"
+          class="horizontal"
+          :images="story.content.images"
+        />
+        <slider
+          id="worksingle-SliderWindowVertical"
+          class="vertical"
+          :images="story.content.images_mobile"
+        />
       </div>
     </section>
     <nuxt-link to="/work" tag="div" class="close hovered">
@@ -65,9 +70,8 @@ export default {
   mounted() {
     this.measureHeight()
     this.removeChangeCursor()
-    window.addEventListener("resize", () => {
-      this.measureHeight()
-    })
+    window.addEventListener("resize", this.measureHeight)
+    window.addEventListener("scroll", this.getSlideshowPosition)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
@@ -76,9 +80,7 @@ export default {
       const element = document.getElementById("worksingle-Text")
       const image = document.getElementById("worksingle-Slider")
       const height = element.offsetHeight
-      console.log(element)
-      console.log(height)
-      image.style.marginTop = `${height}px`
+      image.style.top = `${height}px`
     },
     changeCursor() {
       let $cursor = $(".cursor")

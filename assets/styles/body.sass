@@ -203,27 +203,16 @@ main
       left: 0
       width: 100%
       display: flex
-      justify-content: space-between
-      align-items: flex-end
+      flex-direction: column
+      align-items: flex-start
+      justify-content: flex-start
       padding-top: var(--top-padding)
       padding-left: var(--side-padding)
       padding-right: var(--side-padding)
-      padding-bottom: var(--spacing-two)
-      @media screen and ( max-width: $breakpoint-mobile)
-        flex-direction: column-reverse
-        align-items: flex-start
-        justify-content: center
-        min-height: -webkit-fill-available
-        padding-top: var(--spacing-two)
-        padding-bottom: var(--spacing-two)
-        h1
-          margin-bottom: .5em
-      @media screen and ( min-width: $breakpoint-mobile)
-        h1, p
-          flex-basis: calc(50% - 1em)
-        h1
-          text-align: right
-          transform: translateY(.2em)
+      padding-bottom: var(--side-padding)
+      p
+        max-width: 48em
+        margin-top: 1em
     &_Slider
       position: absolute
       width: 100%
