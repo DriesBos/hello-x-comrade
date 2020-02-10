@@ -9,7 +9,6 @@ main
   justify-content: flex-end
   min-height: 100vh
   cursor: none
-  // overflow: hidden // For sliding panel transitions
 
 .header
   position: fixed
@@ -38,12 +37,12 @@ main
         padding-right: 0
     .logo
       height: 2.2em
-    @media screen and ( max-width: $breakpoint-mobile)
-      padding-top: var(--spacing-one)
-      flex-direction: row-reverse
-      align-items: center
-      border-bottom: 0
-      padding-bottom: 0
+    // @media screen and ( max-width: $breakpoint-mobile)
+    //   padding-top: var(--spacing-one)
+    //   flex-direction: row-reverse
+    //   align-items: center
+    //   border-bottom: 0
+    //   padding-bottom: 0
   &-Mobile
     &_Toggle
       position: fixed
@@ -315,10 +314,10 @@ main
 
 // Important since overriding interactions
 .desktop
-  @media screen and ( max-width: $breakpoint-mobile)
+  @media screen and ( max-width: $breakpoint-tablet)
     display: none
 .mobile
-  @media screen and ( min-width: $breakpoint-mobile)
+  @media screen and ( min-width: $breakpoint-tablet)
     display: none
 .horizontal
   @media screen and (orientation: portrait)
