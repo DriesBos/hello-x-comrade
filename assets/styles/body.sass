@@ -24,12 +24,12 @@ main
     margin-right: var(--side-padding)
     padding-top: var(--spacing-two)
     padding-bottom: var(--spacing-one)
-    // transform: translate3d(0, -101%, 0)
+    transform: translate3d(0, -101%, 0)
     transition: 0.3s transform ease
     will-change: transform
     border-bottom: 1px solid white
-    @media screen and ( max-width: $breakpoint-tablet)
-      padding-top: var(--spacing-one)
+    // @media screen and ( max-width: $breakpoint-tablet)
+    //   padding-top: var(--spacing-one)
     ul
       li
         margin-right: 2em
@@ -127,6 +127,7 @@ main
   padding-bottom: 0
   z-index: 999
   line-height: 1.5
+  mix-blend-mode: difference
   @media screen and ( max-width: $breakpoint-mobile)
     padding: var(--side-padding)
   &-Icon
