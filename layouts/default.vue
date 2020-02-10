@@ -1,6 +1,7 @@
 <template>
   <main>
     <the-header :class="{ toggle: showHeader, isClose: showClose }" />
+    <the-header-mobile />
     <transition name="pages" mode="out-in">
       <nuxt />
     </transition>
@@ -14,13 +15,15 @@
 
 <script>
 import TheHeader from "~/components/TheHeader.vue"
+import TheHeaderMobile from "~/components/TheHeaderMobile.vue"
 import gsap from "gsap"
 import JQuery from "jquery"
 let $ = JQuery
 
 export default {
   components: {
-    "the-header": TheHeader
+    "the-header": TheHeader,
+    "the-header-mobile": TheHeaderMobile
   },
   data() {
     return {

@@ -20,38 +20,43 @@ main
   left: 0
   top: 0
   right: 0
-  mix-blend-mode: difference
-  z-index: 999
+  z-index: +1
   &-Desktop
-    display: flex
-    justify-content: space-between
-    align-items: flex-end
-    margin-left: var(--side-padding)
-    margin-right: var(--side-padding)
-    padding-top: var(--spacing-two)
-    padding-bottom: var(--spacing-one)
+    mix-blend-mode: difference
     transform: translate3d(0, -101%, 0)
-    transition: 0.3s transform ease
+    transition: transform 0.3s ease
     will-change: transform
-    border-bottom: var(--border-bottom)
     @media screen and ( max-width: $breakpoint-tablet)
       display: none
-    ul
-      li
-        margin-right: 2em
-        display: inline-block
-        @media screen and ( max-width: $breakpoint-tablet)
-          margin-right: 1.6em
-      li:last-child
-        padding-right: 0
-    .logo
-      height: 2.2em
+    &.toggle
+      transform: translate3d(0, 0, 0)
+    nav
+      display: flex
+      justify-content: space-between
+      align-items: flex-end
+      margin-left: var(--side-padding)
+      margin-right: var(--side-padding)
+      padding-top: var(--spacing-two)
+      padding-bottom: var(--spacing-one)
+      border-bottom: var(--border-bottom)
+      ul
+        li
+          margin-right: 2em
+          display: inline-block
+          @media screen and ( max-width: $breakpoint-tablet)
+            margin-right: 1.6em
+        li:last-child
+          padding-right: 0
+      .logo
+        height: 2.2em
   &-Mobile
+    mix-blend-mode: difference
     &_Toggle
       position: fixed
       top: 0
       right: 0
-      padding: var(--spacing-one)
+      padding: var(--side-padding)
+      mix-blend-mode: difference
     &_Content
       position: fixed
       top: -1px
@@ -62,20 +67,29 @@ main
       display: flex
       flex-direction: column
       justify-content: flex-start
-      background: black
+      background-color: black
       padding-top: var(--top-padding)
       padding-left: var(--side-padding)
       padding-right: var(--side-padding)
       padding-bottom: var(--bottom-padding)
       border-top: 1px solid white
       overflow-y: auto
+      mix-blend-mode: unset
+      ul
+        margin-top: auto
+        li:hover
+          text-decoration: underline
+        li
+          h1
+            display: inline
+        @media ( hover: none )
+          li:hover
+            text-decoration: none
       h1
         line-height: 1.5em
+        mix-blend-mode: unset !important
     @media screen and ( min-width: $breakpoint-tablet)
       display: none
-  &.toggle
-    .header-Desktop
-      transform: translate3d(0, 0, 0)
   &.isClose
     .header-Mobile
       display: none
@@ -136,6 +150,8 @@ main
   mix-blend-mode: difference
   @media screen and ( max-width: $breakpoint-mobile)
     padding: var(--side-padding)
+  @media screen and ( max-width: $breakpoint-tablet)
+    display: none
   &-Icon
     display: inline
     height: 100%
@@ -227,9 +243,12 @@ main
       padding-left: var(--side-padding)
       padding-right: var(--side-padding)
       padding-bottom: var(--spacing-three)
+      pointer-events: none
       p
         max-width: 48em
         margin-top: var(--spacing-three)
+        @media screen and ( max-width: $breakpoint-tablet)
+          margin-top: 1em
     &_Slider
       position: absolute
       width: 100%
