@@ -80,7 +80,7 @@ export default {
       const element = document.getElementById("worksingle-Text")
       const image = document.getElementById("worksingle-Slider")
       const height = element.offsetHeight
-      image.style.top = `${height}px`
+      image.style.marginTop = `${height}px`
     },
     changeCursor() {
       let $cursor = $(".cursor")
