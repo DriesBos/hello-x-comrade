@@ -6,6 +6,7 @@
         <li v-if="showToggle === false" key="back">
           <nuxt-link to="/work" tag="span">close</nuxt-link>
         </li>
+        <li v-if="toggled" key="close" @click="onClick()">close</li>
         <li v-else key="open" @click="onClick()">menu</li>
       </transition>
     </ul>
@@ -15,6 +16,9 @@
 <script>
 export default {
   name: "TheHeader",
+  props: {
+    toggled: Boolean
+  },
   data() {
     return {
       showToggle: true

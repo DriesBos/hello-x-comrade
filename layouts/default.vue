@@ -5,11 +5,11 @@
     <transition name="headerMobileContent">
       <the-header-mobile v-if="showHeaderMobile" @clicked="toggleHeaderMobile" />
     </transition>
-    <the-header-toggle @clicked="toggleHeaderMobile" />
+    <!-- prettier-ignore -->
+    <the-header-toggle :toggled="showHeaderMobile" @clicked="toggleHeaderMobile" />
     <transition name="pages" mode="out-in">
       <nuxt />
     </transition>
-    <!-- prettier-ignore -->
     <div class="cursor">
       <img class="icon-Prev" src="~/assets/images/arrow-medium.svg" />
       <img class="icon-Next" src="~/assets/images/arrow-medium.svg" />
