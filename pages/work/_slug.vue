@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <!-- prettier-ignore -->
-    <section id="worksingle-Page" class="content-Worksingle" @click="toggleSliderOnClick">
+    <section id="worksingle-Page" class="content-Worksingle">
       <div id="worksingle-Text" class="content-Worksingle_Text">
         <h1>{{ story.content.title }}</h1>
         <markdown-item :input="story.content.text" />
@@ -89,6 +89,18 @@ export default {
     removeChangeCursor() {
       let $cursor = $(".cursor")
       $cursor.removeClass("hovers-container")
+    }
+  },
+  head() {
+    return {
+      title: this.story.content.metadata.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.story.content.metadata.description
+        }
+      ]
     }
   }
 }

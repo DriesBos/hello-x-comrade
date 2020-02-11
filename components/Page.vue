@@ -16,7 +16,7 @@ export default {
   },
   head() {
     return {
-      title: this.blok.metadata.title,
+      title: `${this.blok.metadata.title} — Hello X Comrade`,
       meta: [
         {
           hid: "description",
