@@ -180,6 +180,8 @@ main
     padding-left: var(--side-padding)
     padding-right: var(--side-padding)
     margin-bottom: var(--bottom-padding)
+    h1, a, p
+      display: inline
     li
       h1
         line-height: 1.5
@@ -188,9 +190,9 @@ main
       @media screen and ( max-width: $breakpoint-mobile)
         display: inline
     &_Year
-      display: none
-      @media screen and ( min-width: $breakpoint-mobile)
-        display: inline
+      display: inline !important
+      @media screen and ( max-width: $breakpoint-mobile)
+        display: none !important
     a
       display: inline-flex
       align-items: baseline
@@ -203,8 +205,6 @@ main
             text-decoration: none
           & ~ .image
             display: none
-    h1, a, p
-      display: inline
     span
       @media screen and ( max-width: $breakpoint-mobile)
         display: inline

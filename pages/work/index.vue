@@ -12,7 +12,7 @@
           <nuxt-link class="hovered" :to="post.full_slug">
             <h1>
               {{ post.content.title }}
-              <span class="content-Work_Slash">&nbsp;/&nbsp;</span>
+              <span class="content-Work_Slash">/</span>
             </h1>
             <p class="content-Work_Year">&nbsp;/{{ post.content.year }}&nbsp;</p>
           </nuxt-link>
