@@ -55,8 +55,8 @@ export default {
     this.customCursor()
     this.routeCheck()
     window.addEventListener("scroll", this.toggleHEaderOnScroll)
-    document.addEventListener("mouseleave", this.mouseLeftDocument)
-    document.addEventListener("mouseenter", this.mouseEntersDocument)
+    document.addEventListener("mouseleave", this.mouseLeftDocument, true)
+    document.addEventListener("mouseenter", this.mouseEntersDocument, true)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
