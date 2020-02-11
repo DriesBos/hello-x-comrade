@@ -1,7 +1,11 @@
 <template>
   <main>
     <the-header :class="{ toggle: showHeader, isClose: showClose }" />
-    <the-header-mobile />
+    <!-- prettier-ignore -->
+    <transition name="headerMobileContent">
+      <the-header-mobile v-if="showHeaderMobile" @clicked="toggleHeaderMobile" />
+    </transition>
+    <the-header-toggle @clicked="toggleHeaderMobile" />
     <transition name="pages" mode="out-in">
       <nuxt />
     </transition>
@@ -16,6 +20,7 @@
 <script>
 import TheHeader from "~/components/TheHeader.vue"
 import TheHeaderMobile from "~/components/TheHeaderMobile.vue"
+import TheHeaderToggle from "~/components/TheHeaderToggle.vue"
 import gsap from "gsap"
 import JQuery from "jquery"
 let $ = JQuery
@@ -23,12 +28,14 @@ let $ = JQuery
 export default {
   components: {
     "the-header": TheHeader,
-    "the-header-mobile": TheHeaderMobile
+    "the-header-mobile": TheHeaderMobile,
+    "the-header-toggle": TheHeaderToggle
   },
   data() {
     return {
       showHeader: true,
       showClose: false,
+      showHeaderMobile: false,
       lastScrollPosition: 0
     }
   },
@@ -57,6 +64,9 @@ export default {
     window.removeEventListener("scroll", this.handleScroll)
   },
   methods: {
+    toggleHeaderMobile() {
+      this.showHeaderMobile = !this.showHeaderMobile
+    },
     customCursor() {
       let $cursor = $(".cursor")
       function moveCursor(e) {

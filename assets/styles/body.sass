@@ -17,11 +17,11 @@ main
 
 .header
   position: fixed
-  left: 0
   top: 0
   right: 0
   z-index: +1
   &-Desktop
+    left: 0
     mix-blend-mode: difference
     transform: translate3d(0, -101%, 0)
     transition: transform 0.3s ease
@@ -49,42 +49,33 @@ main
           padding-right: 0
       .logo
         height: 2.2em
-  &-Mobile
+  &-Toggle
+    padding: var(--side-padding)
     mix-blend-mode: difference
-    &_Toggle
-      position: fixed
-      top: 0
-      right: 0
-      padding: var(--side-padding)
-      mix-blend-mode: difference
-    &_Content
-      position: fixed
-      top: -1px
-      right: 0
-      left: 0
-      bottom: 0
-      width: 100vw
-      display: flex
-      flex-direction: column
-      justify-content: flex-start
-      background-color: black
-      padding-top: var(--top-padding)
-      padding-left: var(--side-padding)
-      padding-right: var(--side-padding)
-      padding-bottom: var(--bottom-padding)
-      border-top: 1px solid white
-      overflow-y: auto
-      mix-blend-mode: unset
-      ul
-        margin-top: auto
+    @media screen and ( min-width: $breakpoint-tablet)
+      display: none
+  &-Mobile
+    top: -1px
+    left: 0
+    right: 0
+    bottom: 0
+    padding-top: var(--top-padding)
+    padding-left: var(--side-padding)
+    padding-right: var(--side-padding)
+    padding-bottom: var(--bottom-padding)
+    background-color: black
+    border-top: 1px solid white
+    overflow-y: auto
+    z-index: +2
+    ul
+      li:hover
+        text-decoration: underline
+      li
+        h1
+          display: inline
+      @media ( hover: none )
         li:hover
-          text-decoration: underline
-        li
-          h1
-            display: inline
-        @media ( hover: none )
-          li:hover
-            text-decoration: none
+          text-decoration: none
       h1
         line-height: 1.5em
         mix-blend-mode: unset !important
