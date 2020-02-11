@@ -41,26 +41,15 @@ export default {
         ":" +
         (amsTime.getMinutes() < 10 ? "0" : "") +
         amsTime.getMinutes()
-      // Check date object options: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleTimeString#Using_options
-      // console.log(date)
-      // console.log(offset)
-      // console.log(amsTime)
-      // console.log(this.timeAMS)
     },
     setLocalTime() {
       let date = new Date()
-      let offset = date.getTimezoneOffset() * 60000
-      let userTime = new Date(date + 3600000 * offset)
       this.timeLocal =
-        (userTime.getHours() < 10 ? "0" : "") +
-        userTime.getHours() +
+        (date.getHours() < 10 ? "0" : "") +
+        date.getHours() +
         ":" +
-        (userTime.getMinutes() < 10 ? "0" : "") +
-        userTime.getMinutes()
-      // console.log(date)
-      // console.log(offset)
-      // console.log(userTime)
-      // console.log(this.timeLocal)
+        (date.getMinutes() < 10 ? "0" : "") +
+        date.getMinutes()
     }
   },
   head() {
