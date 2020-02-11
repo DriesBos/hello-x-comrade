@@ -43,6 +43,18 @@ export default {
       let $cursor = $(".cursor")
       $cursor.removeClass("hovers-container")
     }
+  },
+  head() {
+    return {
+      title: this.blok.metadata.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.blok.metadata.description
+        }
+      ]
+    }
   }
 }
 </script>

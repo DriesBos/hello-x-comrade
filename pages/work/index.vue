@@ -4,7 +4,7 @@
       <ul>
         <!-- prettier-ignore -->
         <li
-          v-for="post in stories"
+          v-for="post in projects"
           :id="post.content.id"
           :key="post.content.id"
           :class="post.content.id"
@@ -68,14 +68,33 @@ export default {
   },
   data() {
     return {
-      stories: { content: {} }
+      stories: { content: {} },
+      projects: {},
+      metadata: {},
+      metatitle: "",
+      metadescription: ""
     }
   },
   mounted() {
+    this.arrayLoop(this.stories)
+    this.assignData()
+    console.log(this.metatitle)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
   methods: {
+    arrayLoop(array) {
+      this.projects = array.filter(function(el) {
+        if (el.content.component === "page-project") {
+          return true
+        }
+      })
+      this.metadata = array.find(function(el) {
+        if (el.content.component === "page-work") {
+          return true
+        }
+      })
+    },
     changeCursor() {
       let $cursor = $(".cursor")
       $cursor.addClass("hovers-container")
@@ -83,6 +102,22 @@ export default {
     removeChangeCursor() {
       let $cursor = $(".cursor")
       $cursor.removeClass("hovers-container")
+    },
+    assignData() {
+      this.metatitle = this.metadata.content.metadata.title
+      this.metadescription = this.metadata.content.metadata.description
+    }
+  },
+  head() {
+    return {
+      title: this.metatitle,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.metadescription
+        }
+      ]
     }
   }
 }

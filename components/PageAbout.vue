@@ -28,6 +28,18 @@
 export default {
   props: {
     blok: Object
+  },
+  head() {
+    return {
+      title: this.blok.metadata.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.blok.metadata.description
+        }
+      ]
+    }
   }
 }
 </script>

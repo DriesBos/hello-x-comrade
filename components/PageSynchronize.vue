@@ -17,6 +17,9 @@
 
 <script>
 export default {
+  props: {
+    blok: Object
+  },
   data() {
     return {
       timeAMS: "",
@@ -58,6 +61,18 @@ export default {
       // console.log(offset)
       // console.log(userTime)
       // console.log(this.timeLocal)
+    }
+  },
+  head() {
+    return {
+      title: this.blok.metadata.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.blok.metadata.description
+        }
+      ]
     }
   }
 }
