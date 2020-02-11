@@ -67,8 +67,17 @@ main
     border-top: 1px solid white
     overflow-y: auto
     ul
+      position: relative
+      width: 100%
+      display: block
+      height: 100%
+      display: flex
+      flex-direction: column
+      li:first-child
+        margin-top: auto // Pushes content down
       h1
         line-height: 1.5em
+        display: inline
     @media screen and ( min-width: $breakpoint-tablet)
       display: none
 

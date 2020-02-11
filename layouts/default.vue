@@ -3,7 +3,7 @@
     <the-header :class="{ toggle: showHeader, isClose: showClose }" />
     <!-- prettier-ignore -->
     <transition name="headerMobileContent">
-      <the-header-mobile v-if="showHeaderMobile" @clicked="toggleHeaderMobile" />
+      <the-header-mobile v-show="showHeaderMobile" @clicked="toggleHeaderMobile" />
     </transition>
     <!-- prettier-ignore -->
     <the-header-toggle :toggled="showHeaderMobile" @clicked="toggleHeaderMobile" />
