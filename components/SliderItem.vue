@@ -12,14 +12,18 @@
             type="image/png"
             :srcset="currentImage | transformImage( '1680x0/filters:format(png)')"
           />
-          <img loading="lazy" :data-src="currentImage | transformImage('1680x0')" />
+          <img
+            loading="lazy"
+            :data-src="currentImage | transformImage('1680x0')"
+            alt="project image"
+          />
         </picture>
       </div>
     </transition-group>
     <!-- prettier-ignore -->
     <div class="slider-Navigation">
-      <a v-if="imageCount > 1" class="slider-Nav slider-Nav_Prev"  @click="previous"  />
-      <a v-if="imageCount > 1" class="slider-Nav slider-Nav_Next" @click="next"  />
+      <a v-if="imageCount > 1" class="slider-Nav slider-Nav_Prev" @click="previous" />
+      <a v-if="imageCount > 1" class="slider-Nav slider-Nav_Next" @click="next" />
     </div>
   </div>
 </template>
