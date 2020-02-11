@@ -76,7 +76,7 @@ main
       li:first-child
         margin-top: auto // Pushes content down
       h1
-        line-height: 1.5em
+        line-height: 1.5
         display: inline
     @media screen and ( min-width: $breakpoint-tablet)
       display: none
@@ -180,6 +180,9 @@ main
     padding-left: var(--side-padding)
     padding-right: var(--side-padding)
     margin-bottom: var(--bottom-padding)
+    li
+      h1
+        line-height: 1.5
     &_Slash
       display: none
       @media screen and ( max-width: $breakpoint-mobile)
