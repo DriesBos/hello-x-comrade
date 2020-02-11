@@ -4,7 +4,7 @@
     <section id="worksingle-Page" class="content-Worksingle" @click="toggleSliderOnClick">
       <div id="worksingle-Text" class="content-Worksingle_Text">
         <h1>{{ story.content.title }}</h1>
-        <p>{{ story.content.text }}</p>
+        <markdown-item :input="story.content.text" />
       </div>
       <!-- prettier-ignore -->
       <div id="worksingle-Slider" class="content-Worksingle_Slider slider-blok">
