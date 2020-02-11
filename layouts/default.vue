@@ -61,7 +61,9 @@ export default {
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll)
+    window.removeEventListener("scroll", this.toggleHEaderOnScroll)
+    document.removeEventListener("mouseleave", this.mouseLeftDocument)
+    document.removeEventListener("mouseenter", this.mouseEntersDocument)
   },
   methods: {
     toggleHeaderMobile() {
