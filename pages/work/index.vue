@@ -12,9 +12,9 @@
           <nuxt-link class="hovered" :to="post.full_slug">
             <h1>
               {{ post.content.title }}
-              <span class="content-Work_Slash">/</span>
+              <span class="content-Work_Slash">&nbsp;/&nbsp;</span>
             </h1>
-            <p class="content-Work_Year">/{{ post.content.year }}</p>
+            <p class="content-Work_Year">&nbsp;/{{ post.content.year }}&nbsp;</p>
           </nuxt-link>
           <picture class="image">
             <source
@@ -78,7 +78,6 @@ export default {
   mounted() {
     this.arrayLoop(this.stories)
     this.assignData()
-    console.log(this.metatitle)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
