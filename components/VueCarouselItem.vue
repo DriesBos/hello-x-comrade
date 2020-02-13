@@ -76,7 +76,7 @@ export default {
       const carousel = this.$refs["vueCarouselItem"]
       const currentPage = carousel.currentPage
       const pageCount = carousel.pageCount
-      if (currentPage === 0) {
+      if (currentPage == 0) {
         this.iconPrev = false
       } else {
         this.iconPrev = true
