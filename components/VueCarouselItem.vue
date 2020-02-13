@@ -18,25 +18,34 @@
           <img :src="image.filename" :alt="image.name" />
         </slide>
       </carousel>
-      <div class="carousel-Navigation">
-        <a
-          class="carousel-Nav carousel-Nav_Prev"
-          @click="SlideCarousel('prev')"
-        />
-        <a
-          class="carousel-Nav carousel-Nav_Next"
-          @click="SlideCarousel('next')"
-        />
-      </div>
     </NoSsr>
+    <div class="carousel-Navigation">
+      <a
+        class="carousel-Nav carousel-Nav_Prev"
+        @click="SlideCarousel('prev')"
+      />
+      <a
+        class="carousel-Nav carousel-Nav_Next"
+        @click="SlideCarousel('next')"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+import JQuery from "jquery"
+let $ = JQuery
+
 export default {
   name: "VueCarouselItem",
   props: {
     images: Array
+  },
+  mounted() {
+    $(".carousel-Nav_Prev").on("mouseover", this.changeCursorToPrev)
+    $(".carousel-Nav_Next").on("mouseover", this.changeCursorToNext)
+    $(".carousel-Nav_Prev").on("mouseleave", this.removeCursor)
+    $(".carousel-Nav_Next").on("mouseleave", this.removeCursor)
   },
   methods: {
     SlideCarousel(value) {
@@ -52,12 +61,28 @@ export default {
           ? carousel.goToPage(currentPage + 1)
           : carousel.goToPage(0)
       }
+    },
+    changeCursorToPrev() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("cursor-Prev")
+      $cursor.removeClass("cursor-Next")
+    },
+    changeCursorToNext() {
+      let $cursor = $(".cursor")
+      $cursor.addClass("cursor-Next")
+      $cursor.removeClass("cursor-Prev")
+    },
+    removeCursor() {
+      let $cursor = $(".cursor")
+      $cursor.removeClass("cursor-Next")
+      $cursor.removeClass("cursor-Prev")
     }
   }
 }
 </script>
 
 <style lang="sass">
+// Non scoped to reach & override dep defaults
 .carousel
   &-Container
     position: relative
