@@ -188,6 +188,9 @@ export default {
         text-align: right
         img
           transform: rotate(180deg)
+      img
+        padding-left: env(safe-area-inset-left)
+        padding-right: env(safe-area-inset-right)
     &_Nav_Prev, &_Nav_Next
       opacity: 0
       transition: opacity .19s ease
