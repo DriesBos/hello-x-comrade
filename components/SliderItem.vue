@@ -1,5 +1,5 @@
 <template>
-  <div class="slider-Container" @click="next">
+  <div class="slider-Container">
     <transition-group>
       <!-- prettier-ignore -->
       <div v-for="number in [index]" :key="number" class="image-Slider">
