@@ -1,13 +1,15 @@
 <template>
   <div>
-    <carousel :per-page="1" :mouse-drag="false">
-      <slide>
-        Slide 1 Content
-      </slide>
-      <slide>
-        Slide 2 Content
-      </slide>
-    </carousel>
+    <NoSsr>
+      <carousel :per-page="1" :mouse-drag="false">
+        <slide>
+          <img src="~/assets/images/realm_wide_6.webp" />
+        </slide>
+        <slide>
+          <img src="~/assets/images/realm_wide_7.webp" />
+        </slide>
+      </carousel>
+    </NoSsr>
   </div>
 </template>
 
