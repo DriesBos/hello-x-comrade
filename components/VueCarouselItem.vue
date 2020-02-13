@@ -21,22 +21,26 @@
     <div class="carousel-Navigation">
       <a
         class="carousel-Nav carousel-Nav_Prev"
+        :class="{ active: iconPrev }"
         @click="SlideCarousel('prev')"
       />
       <a
         class="carousel-Nav carousel-Nav_Next"
+        :class="{ active: iconNext }"
         @click="SlideCarousel('next')"
       />
     </div>
     <div class="carousel-Mobile_Navigation">
       <a
         class="carousel-Mobile_Nav carousel-Mobile_Nav_Prev"
+        :class="{ active: iconPrev }"
         @click="SlideCarousel('prev')"
       >
         <img src="~/assets/images/arrow-right.svg"
       /></a>
       <a
-        class="carousel-Mobile_Nav carousel-Mobile_Nav_Next active"
+        class="carousel-Mobile_Nav carousel-Mobile_Nav_Next"
+        :class="{ active: iconNext }"
         @click="SlideCarousel('next')"
       >
         <img src="~/assets/images/arrow-right.svg"
@@ -54,66 +58,58 @@ export default {
   props: {
     images: Array
   },
+  data() {
+    return {
+      iconPrev: false,
+      iconNext: true
+    }
+  },
   mounted() {
     $(".carousel-Nav_Prev").on("mousemove", this.changeCursorToPrev)
     $(".carousel-Nav_Next").on("mousemove", this.changeCursorToNext)
     $(".carousel-Nav_Prev").on("mouseleave", this.removeCursor)
     $(".carousel-Nav_Next").on("mouseleave", this.removeCursor)
+    document.addEventListener("click", this.iconChange)
   },
   methods: {
+    iconChange() {
+      const carousel = this.$refs["vueCarouselItem"]
+      const currentPage = carousel.currentPage
+      const pageCount = carousel.pageCount
+      if (currentPage === 0) {
+        this.iconPrev = false
+      } else {
+        this.iconPrev = true
+      }
+      if (currentPage < pageCount - 1) {
+        this.iconNext = true
+      } else {
+        this.iconNext = false
+      }
+    },
     SlideCarousel(value) {
       const carousel = this.$refs["vueCarouselItem"]
       const currentPage = carousel.currentPage
       const pageCount = carousel.pageCount
-      let $cursor = $(".cursor")
-      let $mobilePrev = $(".carousel-Mobile_Nav_Prev")
-      let $mobileNext = $(".carousel-Mobile_Nav_Next")
       if (value == "prev") {
         if (currentPage != 0) {
           carousel.goToPage(currentPage - 1)
-          $mobilePrev.addClass("active")
-          $mobileNext.addClass("active")
-        } else {
-          // carousel.goToPage(currentPage + 1)
-          $cursor.removeClass("cursor-Prev")
-          $mobilePrev.removeClass("active")
         }
       } else {
         if (currentPage < pageCount - 1) {
           carousel.goToPage(currentPage + 1)
-          $mobileNext.addClass("active")
-          $mobilePrev.addClass("active")
-        } else {
-          // carousel.goToPage(currentPage - 1)
-          $cursor.removeClass("cursor-Next")
-          $mobileNext.removeClass("active")
         }
       }
     },
     changeCursorToPrev() {
-      const carousel = this.$refs["vueCarouselItem"]
-      const currentPage = carousel.currentPage
       let $cursor = $(".cursor")
-      if (currentPage != 0) {
-        $cursor.addClass("cursor-Prev")
-        $cursor.removeClass("cursor-Next")
-      } else {
-        $cursor.removeClass("cursor-Next")
-        $cursor.removeClass("cursor-Prev")
-      }
+      $cursor.addClass("cursor-Prev")
+      $cursor.removeClass("cursor-Next")
     },
     changeCursorToNext() {
-      const carousel = this.$refs["vueCarouselItem"]
-      const currentPage = carousel.currentPage
-      const pageCount = carousel.pageCount
       let $cursor = $(".cursor")
-      if (currentPage < pageCount - 1) {
-        $cursor.addClass("cursor-Next")
-        $cursor.removeClass("cursor-Prev")
-      } else {
-        $cursor.removeClass("cursor-Prev")
-        $cursor.removeClass("cursor-Next")
-      }
+      $cursor.addClass("cursor-Next")
+      $cursor.removeClass("cursor-Prev")
     },
     removeCursor() {
       let $cursor = $(".cursor")
@@ -147,10 +143,19 @@ export default {
     top: 0
     bottom: 0
     width: 50vw
+    opacity: 0
+    transition: opacity .19s ease
+    z-index: 999
     &_Prev
       left: 0
+      display: none
+      &.active
+        display: block
     &_Next
       right: 0
+      display: none
+      &.active
+        display: block
   &-Mobile
     &_Navigation
       position: absolute
@@ -161,7 +166,7 @@ export default {
       z-index: 999
       transform: translateY(-50%)
       mix-blend-mode: difference
-      display: flex
+      display: none
       @media ( hover: none )
         display: flex
       a
