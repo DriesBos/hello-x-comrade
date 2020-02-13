@@ -2,7 +2,7 @@
   <div class="slider-Container">
     <transition-group>
       <!-- prettier-ignore -->
-      <div v-for="number in [index]" :key="number" class="image-Slider">
+      <div v-for="number in [index]" :key="number" class="slider-Slide">
         <picture class="image">
           <source
             type="image/webp"
@@ -112,6 +112,26 @@ export default {
   &-Container
     position: relative
     height: 100%
+  &-Slide
+    position: absolute
+    display: flex
+    justify-content: center
+    align-items: center
+    top: 0
+    left: 0
+    height: 100%
+    width: 100%
+    background: black
+    .image
+      width: 100%
+      height: 100%
+      img
+        width: 100%
+        height: 100%
+        max-width: 100%
+        max-height: 100%
+        object-fit: cover
+        object-position: center center
   &-Nav
     position: absolute
     top: 0
@@ -122,22 +142,6 @@ export default {
     &_Next
       right: 0
 
-.image-Slider
-  display: flex
-  justify-content: center
-  align-items: center
-  top: 0
-  left: 0
-  height: 100%
-  width: 100%
-  .image
-    width: 100%
-    height: 100%
-    object-fit: contain
-    object-position: center center
-    img
-      max-width: 100%
-      max-height: 100%
 .slider-enter-active, .slider-leave-active
   transition: opacity 2s ease
 .slider-enter, .slider-leave-to
