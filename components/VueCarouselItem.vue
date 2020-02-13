@@ -72,6 +72,7 @@ export default {
         if (currentPage != 0) {
           carousel.goToPage(currentPage - 1)
           $mobilePrev.addClass("active")
+          $mobileNext.addClass("active")
         } else {
           // carousel.goToPage(currentPage + 1)
           $cursor.removeClass("cursor-Prev")
@@ -81,6 +82,7 @@ export default {
         if (currentPage < pageCount - 1) {
           carousel.goToPage(currentPage + 1)
           $mobileNext.addClass("active")
+          $mobilePrev.addClass("active")
         } else {
           // carousel.goToPage(currentPage - 1)
           $cursor.removeClass("cursor-Next")
