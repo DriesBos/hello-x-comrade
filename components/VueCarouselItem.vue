@@ -6,7 +6,7 @@
         class="carousel-Container"
         :per-page="1"
         :minSwipeDistance="8"
-        :mouse-drag="true"
+        :mouse-drag="false"
         :paginationEnabled="false"
         :speed="160"
       >
@@ -107,6 +107,4 @@ export default {
       left: 0
     &_Next
       right: 0
-    @media ( hover: none )
-      display: none
 </style>
