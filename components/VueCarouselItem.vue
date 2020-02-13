@@ -145,7 +145,6 @@ export default {
     width: 50vw
     opacity: 0
     transition: opacity .19s ease
-    z-index: 999
     &_Prev
       left: 0
       display: none
@@ -163,10 +162,9 @@ export default {
       top: 50%
       right: var(--side-padding)
       flex-wrap: nowrap
-      z-index: 999
       transform: translateY(-50%)
       mix-blend-mode: difference
-      display: flex
+      display: none
       @media ( hover: none )
         display: flex
       a

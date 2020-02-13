@@ -8,17 +8,8 @@
       </div>
       <!-- prettier-ignore -->
       <div id="worksingle-Slider" class="content-Worksingle_Slider slider-blok">
-        <!-- <slider
-          id="worksingle-SliderWindowHorizontal"
-          class="horizontal"
-          :images="story.content.images"
-        />
-        <slider
-          id="worksingle-SliderWindowVertical"
-          class="vertical"
-          :images="story.content.images_mobile"
-        /> -->
-        <vue-carousel-item :images="story.content.images" />
+        <vue-carousel-item class="horizontal" :images="story.content.images" />
+        <vue-carousel-item class="vertical" :images="story.content.images_mobile" />
       </div>
     </section>
     <nuxt-link to="/work" tag="div" class="close hovered">
