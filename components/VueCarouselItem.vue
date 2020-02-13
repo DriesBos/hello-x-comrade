@@ -36,14 +36,14 @@
         :class="{ active: iconPrev }"
         @click="SlideCarousel('prev')"
       >
-        <img src="~/assets/images/arrow-right.svg"
+        <img src="~/assets/images/arrow-medium.svg"
       /></a>
       <a
         class="carousel-Mobile_Nav carousel-Mobile_Nav_Next"
         :class="{ active: iconNext }"
         @click="SlideCarousel('next')"
       >
-        <img src="~/assets/images/arrow-right.svg"
+        <img src="~/assets/images/arrow-medium.svg"
       /></a>
     </div>
   </div>
@@ -166,18 +166,17 @@ export default {
       z-index: 999
       transform: translateY(-50%)
       mix-blend-mode: difference
-      display: none
+      display: flex
       @media ( hover: none )
         display: flex
       a
         width: 50vw
         img
           height: 1em
-      a:first-child
-        img
-          transform: rotate(180deg)
       a:last-child
         text-align: right
+        img
+          transform: rotate(180deg)
     &_Nav_Prev, &_Nav_Next
       opacity: 0
       transition: opacity .19s ease
