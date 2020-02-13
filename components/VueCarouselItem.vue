@@ -36,7 +36,7 @@
         <img src="~/assets/images/arrow-right.svg"
       /></a>
       <a
-        class="carousel-Mobile_Nav carousel-Mobile_Nav_Next"
+        class="carousel-Mobile_Nav carousel-Mobile_Nav_Next active"
         @click="SlideCarousel('next')"
       >
         <img src="~/assets/images/arrow-right.svg"
@@ -66,19 +66,25 @@ export default {
       const currentPage = carousel.currentPage
       const pageCount = carousel.pageCount
       let $cursor = $(".cursor")
+      let $mobilePrev = $(".carousel-Mobile_Nav_Prev")
+      let $mobileNext = $(".carousel-Mobile_Nav_Next")
       if (value == "prev") {
         if (currentPage != 0) {
           carousel.goToPage(currentPage - 1)
+          $mobilePrev.addClass("active")
         } else {
           // carousel.goToPage(currentPage + 1)
           $cursor.removeClass("cursor-Prev")
+          $mobilePrev.removeClass("active")
         }
       } else {
         if (currentPage < pageCount - 1) {
           carousel.goToPage(currentPage + 1)
+          $mobileNext.addClass("active")
         } else {
           // carousel.goToPage(currentPage - 1)
           $cursor.removeClass("cursor-Next")
+          $mobileNext.removeClass("active")
         }
       }
     },
@@ -147,22 +153,27 @@ export default {
     &_Navigation
       position: absolute
       left: var(--side-padding)
-      bottom: var(--side-padding)
+      top: 50%
       right: var(--side-padding)
       flex-wrap: nowrap
       z-index: 999
-      // transform: translateY(-50%)
+      transform: translateY(-50%)
       mix-blend-mode: difference
-      display: none
+      display: flex
       @media ( hover: none )
         display: flex
       a
         width: 50vw
         img
-          height: 1.5em
+          height: 1em
       a:first-child
         img
           transform: rotate(180deg)
       a:last-child
         text-align: right
+    &_Nav_Prev, &_Nav_Next
+      opacity: 0
+      transition: opacity .19s ease
+      &.active
+        opacity: 1
 </style>
