@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <section class="content-Work">
-      <ul>
+      <ul class="hovered">
         <!-- prettier-ignore -->
         <li
           v-for="post in projects"

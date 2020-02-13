@@ -56,7 +56,9 @@ export default {
     $(".slider-Container").on("mouseleave", this.removeCursor)
   },
   destroyed() {
-    $(".slider-Container").on("mouseleave", this.removeCursor)
+    $(".slider-Nav_Prev").off("mouseover", this.changeCursorToPrev)
+    $(".slider-Nav_Next").off("mouseover", this.changeCursorToNext)
+    $(".slider-Container").off("mouseleave", this.removeCursor)
   },
   methods: {
     changeCursorToPrev() {

@@ -70,6 +70,17 @@ export default {
     $(".carousel-Nav_Prev").on("mouseleave", this.removeCursor)
     $(".carousel-Nav_Next").on("mouseleave", this.removeCursor)
     document.addEventListener("click", this.iconChange)
+    document.addEventListener("touchstart", this.iconChange)
+    document.addEventListener("touchmove", this.iconChange)
+  },
+  destroyed() {
+    $(".carousel-Nav_Prev").off("mousemove", this.changeCursorToPrev)
+    $(".carousel-Nav_Next").off("mousemove", this.changeCursorToNext)
+    $(".carousel-Nav_Prev").off("mouseleave", this.removeCursor)
+    $(".carousel-Nav_Next").off("mouseleave", this.removeCursor)
+    document.removeEventListener("click", this.iconChange)
+    document.removeEventListener("touchstart", this.iconChange)
+    document.removeEventListener("touchmove", this.iconChange)
   },
   methods: {
     iconChange() {
@@ -145,6 +156,7 @@ export default {
     width: 50vw
     opacity: 0
     transition: opacity .19s ease
+    z-index: +1
     &_Prev
       left: 0
       display: none
@@ -165,6 +177,7 @@ export default {
       transform: translateY(-50%)
       mix-blend-mode: difference
       display: none
+      z-index: +1
       @media ( hover: none )
         display: flex
       a

@@ -67,6 +67,12 @@ export default {
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
+  destroyed() {
+    window.removeEventListener("resize", this.measureHeight)
+    window.removeEventListener("scroll", this.getSlideshowPosition)
+    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
+  },
   methods: {
     measureHeight() {
       const element = document.getElementById("worksingle-Text")
