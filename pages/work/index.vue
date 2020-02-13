@@ -40,7 +40,6 @@ let $ = JQuery
 
 export default {
   mixins: [storyblokLivePreview],
-  scrollToTop: true,
   asyncData(context) {
     return context.app.$storyapi
       .get("cdn/stories/", {
@@ -76,6 +75,7 @@ export default {
     }
   },
   mounted() {
+    window.scrollTo(0, 0)
     this.arrayLoop(this.stories)
     this.assignData()
     $(".hovered").on("mouseover", this.changeCursor)

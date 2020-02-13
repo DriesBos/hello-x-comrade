@@ -26,8 +26,12 @@
 
 <script>
 export default {
+  scrollToTop: true,
   props: {
     blok: Object
+  },
+  mounted() {
+    window.scrollTo(0, 0)
   },
   head() {
     return {
