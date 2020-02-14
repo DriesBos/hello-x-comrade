@@ -2,11 +2,11 @@
   <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
     <form>
-      <input class="hovered" type="text" placeholder="name" />
-      <input class="hovered" type="text" placeholder="email" />
-      <input class="hovered" type="text" placeholder="message" />
+      <input class="hovered" type="text" name="name" placeholder="name" />
+      <input class="hovered" type="text" name="email" placeholder="email" />
+      <input class="hovered" type="text" name="message" placeholder="message" />
       <div class="button-Send">
-        <input class="hovered" type="submit" value="send" />
+        <input class="hovered" type="submit" name="submit" value="send" />
         <!-- prettier-ignore -->
         <div
           class="button-Send_Arrow hovered"
