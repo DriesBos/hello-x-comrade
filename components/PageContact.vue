@@ -1,7 +1,7 @@
 <template>
   <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
-    <form>
+    <form name="contact" method="POST" data-netlify="true">
       <input class="hovered" type="text" name="name" placeholder="name" />
       <input class="hovered" type="text" name="email" placeholder="email" />
       <input class="hovered" type="text" name="message" placeholder="message" />
