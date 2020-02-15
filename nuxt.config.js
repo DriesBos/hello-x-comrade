@@ -1,5 +1,6 @@
 const pkg = require("./package")
 require("dotenv").config()
+import axios from "axios"
 
 module.exports = {
   mode: "universal",
