@@ -1,6 +1,6 @@
 const pkg = require("./package")
+const axios = require("axios")
 require("dotenv").config()
-import axios from "axios"
 
 module.exports = {
   mode: "universal",
@@ -84,8 +84,8 @@ module.exports = {
     fallback: true,
     routes: function(callback) {
       const token = process.env.PREVIEWKEY
-      const per_page = 1000
-      const version = "published"
+      const per_page = 100
+      const version = "draft"
       let cache_version = 0
 
       let page = 1
