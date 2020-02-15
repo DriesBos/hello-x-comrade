@@ -62,7 +62,8 @@ module.exports = {
    ** Nuxt.js modules
    */
   modules: [
-    ["@nuxtjs/pwa"],
+    "@nuxtjs/pwa",
+    "@nuxtjs/axios",
     [
       "@bazzite/nuxt-optimized-images",
       { optimizedImages: { optimizeImages: true, optimizeImagesInDev: true } } // Test compression by setting to true first
