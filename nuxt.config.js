@@ -81,6 +81,7 @@ module.exports = {
     ]
   ],
   generate: {
+    fallback: true,
     routes: function(callback) {
       const token = process.env.PREVIEWKEY
       const per_page = 1000
