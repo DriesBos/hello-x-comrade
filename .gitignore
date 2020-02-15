@@ -165,5 +165,6 @@ sketch
 
 ## Updates ###
 .env
+sw.*
 
 # End of https://www.gitignore.io/api/vue,osx,node,nuxt,sass,macos
