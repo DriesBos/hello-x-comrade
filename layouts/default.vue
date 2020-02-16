@@ -50,11 +50,6 @@ export default {
         this.showHeader = true
         this.showClose = false
       }
-      if (this.$route.path === "/succes" || this.$route.path === "*") {
-        this.lightTheme = true
-      } else {
-        this.lightTheme = false
-      }
     }
   },
   mounted() {
@@ -129,13 +124,6 @@ export default {
       } else {
         this.showHeader = true
         this.showClose = false
-      }
-    },
-    themeCheck() {
-      if (this.$route.path === "/succes" || this.$route.path === "*") {
-        this.lightTheme = true
-      } else {
-        this.lightTheme = false
       }
     }
   }
