@@ -24,7 +24,7 @@ main
     left: 0
     mix-blend-mode: difference
     transform: translate3d(0, -101%, 0)
-    transition: transform 0.3s ease
+    transition: transform $transition-desktop
     will-change: transform
     @media screen and ( max-width: $breakpoint-tablet)
       display: none
@@ -76,8 +76,6 @@ main
       height: 100%
       display: flex
       flex-direction: column
-      li
-        text-align: right
       li:first-child
         margin-top: auto // Pushes content down
       h1
@@ -96,7 +94,7 @@ main
   border-radius: 100px
   background: white
   pointer-events: none
-  transition: width .15s ease, height .15s ease
+  transition: width $transition-cursor, height $transition-cursor
   z-index: 999
   mix-blend-mode: difference
   &.hovers-container
