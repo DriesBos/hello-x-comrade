@@ -16,7 +16,7 @@ h1, h2, h3, p, a
   overflow-wrap: break-word
   hyphens: auto
 
-li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, time
+li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, input::placeholder, time
   font-family: "Sharp Grotesk Book", Helvetica, Arial, sans-serif
   font-size: 1em
   line-height: 1.5
@@ -25,6 +25,10 @@ li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, time
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
   color: white
+
+main.light .content
+  li, h1, h2, h3, p, a, a:link, a:visited, a:hover, a:active, span, input, input::placeholder, time
+    color: black
 
 p, li // Small text
   font-size: 1em
@@ -43,7 +47,6 @@ h2, h3, h4, h5, input, .dynamic-Text p, .dynamic-Text h1, .dynamic-Text h2, .dyn
     line-height: 12.5vw
 
 a
-  color: black
   text-decoration: underline
 
 header
