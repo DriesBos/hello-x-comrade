@@ -11,3 +11,20 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  head() {
+    return {
+      title: "Error – Hello X Comrade",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Oops! We couldn't find that page."
+        }
+      ]
+    }
+  }
+}
+</script>

@@ -62,6 +62,7 @@ export default {
   mounted() {
     this.measureHeight()
     this.removeChangeCursor()
+    console.log(this.story.content)
     window.addEventListener("resize", this.measureHeight)
     window.addEventListener("scroll", this.getSlideshowPosition)
     $(".hovered").on("mouseover", this.changeCursor)
@@ -91,14 +92,14 @@ export default {
   },
   head() {
     return {
-      // title: this.story.content.metadata.title,
-      // meta: [
-      //   {
-      //     hid: "description",
-      //     name: "description",
-      //     content: this.story.content.metadata.description
-      //   }
-      // ]
+      title: this.story.content.metadata.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.story.content.metadata.description
+        }
+      ]
     }
   }
 }
