@@ -14,9 +14,9 @@
         <div class="blok blok-four">
           <h1>{{ blok.blok_3_title }}</h1>
           <div class="content-About_Contactblok">
-            <markdown-item class="hovered" :input="blok.blok_3_text" />
+            <markdown-item :input="blok.blok_3_text" />
             <span>&nbsp;/&nbsp;</span>
-            <nuxt-link class="hovered" to="/contact" tag="a">Contact</nuxt-link>
+            <nuxt-link to="/contact" tag="a">Contact</nuxt-link>
           </div>
         </div>
       </div>

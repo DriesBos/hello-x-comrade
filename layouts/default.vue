@@ -59,6 +59,8 @@ export default {
     document.addEventListener("mouseenter", this.mouseEntersDocument)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
+    $("a").on("mouseover", this.changeCursor)
+    $("a").on("mouseleave", this.removeChangeCursor)
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.toggleHEaderOnScroll)
@@ -66,6 +68,8 @@ export default {
     document.removeEventListener("mouseenter", this.mouseEntersDocument)
     $(".hovered").off("mouseover", this.changeCursor)
     $(".hovered").off("mouseleave", this.removeChangeCursor)
+    $("a").off("mouseover", this.changeCursor)
+    $("a").off("mouseleave", this.removeChangeCursor)
   },
   methods: {
     toggleHeaderMobile() {
