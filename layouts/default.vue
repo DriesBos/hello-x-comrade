@@ -1,5 +1,5 @@
 <template>
-  <main :class="{ light: lightTheme }">
+  <main>
     <the-header :class="{ toggle: showHeader, isClose: showClose }" />
     <!-- prettier-ignore -->
     <transition name="headerMobileContent">
@@ -36,7 +36,6 @@ export default {
       showHeader: true,
       showClose: false,
       showHeaderMobile: false,
-      lightTheme: false,
       lastScrollPosition: 0
     }
   },
@@ -55,7 +54,6 @@ export default {
   mounted() {
     this.customCursor()
     this.routeCheck()
-    this.themeCheck()
     window.addEventListener("scroll", this.toggleHEaderOnScroll)
     document.addEventListener("mouseleave", this.mouseLeftDocument)
     document.addEventListener("mouseenter", this.mouseEntersDocument)
