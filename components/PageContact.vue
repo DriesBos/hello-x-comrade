@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok" class="content-Contact" @keydown.native="testKey">
+  <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
     <form
       name="contact"
