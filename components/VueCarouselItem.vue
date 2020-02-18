@@ -17,13 +17,20 @@
           <picture>
             <source
               type="image/webp"
-              :srcset="transformImage(image.filename, 'filters:format(webp)')"
+              :srcset="
+                transformImage(image.filename, '1920x0/filters:format(webp)')
+              "
             />
             <source
               type="image/png"
-              :srcset="transformImage(image.filename, 'filters:format(png)')"
+              :srcset="
+                transformImage(image.filename, '1920x0/filters:format(png)')
+              "
             />
-            <img :src="image.filename" :alt="image.name" />
+            <img
+              :src="transformImage(image.filename, '1920x0')"
+              :alt="image.name"
+            />
           </picture>
         </slide>
       </carousel>
