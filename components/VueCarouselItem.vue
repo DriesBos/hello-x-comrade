@@ -76,8 +76,8 @@ export default {
     }
   },
   mounted() {
-    $(".carousel-Nav_Prev").on("mousemove", this.changeCursorToPrev)
-    $(".carousel-Nav_Next").on("mousemove", this.changeCursorToNext)
+    $(".carousel-Nav_Prev").on("mouseenter", this.changeCursorToPrev)
+    $(".carousel-Nav_Next").on("mouseenter", this.changeCursorToNext)
     $(".carousel-Nav_Prev").on("mouseleave", this.removeCursor)
     $(".carousel-Nav_Next").on("mouseleave", this.removeCursor)
     document.addEventListener("click", this.iconChange)
@@ -86,8 +86,8 @@ export default {
     document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
-    $(".carousel-Nav_Prev").off("mousemove", this.changeCursorToPrev)
-    $(".carousel-Nav_Next").off("mousemove", this.changeCursorToNext)
+    $(".carousel-Nav_Prev").off("mouseenter", this.changeCursorToPrev)
+    $(".carousel-Nav_Next").off("mouseenter", this.changeCursorToNext)
     $(".carousel-Nav_Prev").off("mouseleave", this.removeCursor)
     $(".carousel-Nav_Next").off("mouseleave", this.removeCursor)
     document.removeEventListener("click", this.iconChange)

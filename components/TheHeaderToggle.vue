@@ -1,5 +1,5 @@
 <template>
-  <header class="header header-Toggle">
+  <header class="header header-Toggle hovered">
     <!-- prettier-ignore -->
     <ul class="header-Mobile_Toggle hovered">
       <transition name="headerMobileToggle" mode="out-in">

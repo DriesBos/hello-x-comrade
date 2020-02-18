@@ -64,16 +64,16 @@ export default {
     this.removeChangeCursor()
     window.addEventListener("resize", this.measureHeight)
     window.addEventListener("scroll", this.getSlideshowPosition)
-    $(".hovered").on("mouseover", this.changeCursor)
-    $(".hovered").on("mouseleave", this.removeChangeCursor)
     document.addEventListener("keydown", this.backOnEscape)
+    $(".hovered").on("mouseenter", this.changeCursor)
+    $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
   destroyed() {
     window.removeEventListener("resize", this.measureHeight)
     window.removeEventListener("scroll", this.getSlideshowPosition)
-    $(".hovered").off("mouseover", this.changeCursor)
-    $(".hovered").off("mouseleave", this.removeChangeCursor)
     document.removeEventListener("keydown", this.backOnEscape)
+    $(".hovered").off("mouseenter", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
   },
   methods: {
     backOnEscape(event) {
@@ -93,6 +93,8 @@ export default {
     changeCursor() {
       let $cursor = $(".cursor")
       $cursor.addClass("hovers-container")
+      $cursor.removeClass("cursor-Prev")
+      $cursor.removeClass("cursor-Next")
     },
     removeChangeCursor() {
       let $cursor = $(".cursor")

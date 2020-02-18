@@ -81,6 +81,10 @@ export default {
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
+  destroyed() {
+    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseleave", this.removeChangeCursor)
+  },
   methods: {
     arrayLoop(array) {
       this.projects = array.filter(function(el) {
