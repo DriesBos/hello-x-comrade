@@ -1,10 +1,16 @@
 <template>
   <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
-    <form name="contact" method="POST" data-netlify="true">
-      <input type="text" name="name" placeholder="name" />
-      <input type="text" name="email" placeholder="email" />
-      <input type="text" name="message" placeholder="message" />
+    <form
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="text" name="name" value="name" placeholder="name" />
+      <input type="text" name="email" value="email" placeholder="email" />
+      <input type="text" name="message" value="message" placeholder="message" />
       <div class="button-Send">
         <input type="submit" value="send" />
         <div
