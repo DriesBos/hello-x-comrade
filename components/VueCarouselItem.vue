@@ -33,26 +33,26 @@
       <a
         class="carousel-Nav carousel-Nav_Prev"
         :class="{ active: iconPrev }"
-        @click="SlideCarousel('prev')"
+        @click="slideCarousel('prev')"
       />
       <a
         class="carousel-Nav carousel-Nav_Next"
         :class="{ active: iconNext }"
-        @click="SlideCarousel('next')"
+        @click="slideCarousel('next')"
       />
     </div>
     <div class="carousel-Mobile_Navigation">
       <a
         class="carousel-Mobile_Nav carousel-Mobile_Nav_Prev"
         :class="{ active: iconPrev }"
-        @click="SlideCarousel('prev')"
+        @click="slideCarousel('prev')"
       >
         <img src="~/assets/images/arrow-medium.svg" />
       </a>
       <a
         class="carousel-Mobile_Nav carousel-Mobile_Nav_Next"
         :class="{ active: iconNext }"
-        @click="SlideCarousel('next')"
+        @click="slideCarousel('next')"
       >
         <img src="~/assets/images/arrow-medium.svg" />
       </a>
@@ -83,6 +83,7 @@ export default {
     document.addEventListener("click", this.iconChange)
     document.addEventListener("touchstart", this.iconChange)
     document.addEventListener("touchmove", this.iconChange)
+    document.addEventListener("keydown", this.keyNavigation)
   },
   destroyed() {
     $(".carousel-Nav_Prev").off("mousemove", this.changeCursorToPrev)
@@ -92,8 +93,16 @@ export default {
     document.removeEventListener("click", this.iconChange)
     document.removeEventListener("touchstart", this.iconChange)
     document.removeEventListener("touchmove", this.iconChange)
+    document.removeEventListener("keydown", this.keyNavigation)
   },
   methods: {
+    keyNavigation(event) {
+      if (event.keyCode === 39) {
+        this.slideCarousel("next")
+      } else if (event.keyCode === 37) {
+        this.slideCarousel("prev")
+      }
+    },
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""
@@ -117,7 +126,7 @@ export default {
         this.iconNext = false
       }
     },
-    SlideCarousel(value) {
+    slideCarousel(value) {
       const carousel = this.$refs["vueCarouselItem"]
       const currentPage = carousel.currentPage
       const pageCount = carousel.pageCount

@@ -78,6 +78,9 @@ export default {
   methods: {
     backOnEscape(event) {
       if (event.keyCode === 27) {
+        let $cursor = $(".cursor")
+        $cursor.removeClass("cursor-Prev")
+        $cursor.removeClass("cursor-Next")
         this.$router.go(-1)
       }
     },
