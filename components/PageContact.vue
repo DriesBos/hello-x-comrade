@@ -1,5 +1,5 @@
 <template>
-  <section v-editable="blok" class="content-Contact">
+  <section v-editable="blok" class="content-Contact" @keydown.native="testKey">
     <markdown-item :input="blok.text" />
     <form
       name="contact"
@@ -39,12 +39,19 @@ export default {
   mounted() {
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
+    document.addEventListener("keydown", this.backOnEscape)
   },
   destroyed() {
     $(".hovered").off("mouseover", this.changeCursor)
     $(".hovered").off("mouseleave", this.removeChangeCursor)
+    document.removeEventListener("keydown", this.backOnEscape)
   },
   methods: {
+    backOnEscape(event) {
+      if (event.keyCode === 27) {
+        this.$router.go(-1)
+      }
+    },
     changeCursor() {
       let $cursor = $(".cursor")
       $cursor.addClass("hovers-container")

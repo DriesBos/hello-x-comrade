@@ -66,14 +66,21 @@ export default {
     window.addEventListener("scroll", this.getSlideshowPosition)
     $(".hovered").on("mouseover", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
+    document.addEventListener("keydown", this.backOnEscape)
   },
   destroyed() {
     window.removeEventListener("resize", this.measureHeight)
     window.removeEventListener("scroll", this.getSlideshowPosition)
     $(".hovered").off("mouseover", this.changeCursor)
     $(".hovered").off("mouseleave", this.removeChangeCursor)
+    document.removeEventListener("keydown", this.backOnEscape)
   },
   methods: {
+    backOnEscape(event) {
+      if (event.keyCode === 27) {
+        this.$router.go(-1)
+      }
+    },
     measureHeight() {
       const element = document.getElementById("worksingle-Text")
       const image = document.getElementById("worksingle-Slider")

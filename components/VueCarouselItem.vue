@@ -1,6 +1,6 @@
 <template>
   <div>
-    <NoSsr>
+    <client-only>
       <carousel
         ref="vueCarouselItem"
         class="carousel-Container"
@@ -28,7 +28,7 @@
           </picture>
         </slide>
       </carousel>
-    </NoSsr>
+    </client-only>
     <div class="carousel-Navigation">
       <a
         class="carousel-Nav carousel-Nav_Prev"
