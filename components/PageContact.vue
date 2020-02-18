@@ -9,11 +9,11 @@
       data-netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="contact" />
-      <input type="text" name="name" placeholder="name" />
-      <input type="text" name="email" placeholder="email" />
-      <input type="text" name="message" placeholder="message" />
+      <input class="hovered" type="text" name="name" placeholder="name" />
+      <input class="hovered" type="text" name="email" placeholder="email" />
+      <input class="hovered" type="text" name="message" placeholder="message" />
       <div class="button-Send">
-        <input type="submit" value="send" />
+        <input class="hovered" type="submit" value="send" />
         <div
           class="button-Send_Arrow hovered"
           v-html="require('~/assets/images/arrow-right.svg?include')"
