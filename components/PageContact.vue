@@ -1,20 +1,20 @@
 <template>
   <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
-    <!-- <form name="contact" method="POST" data-netlify="true">
+    <form name="contact" method="POST" data-netlify="true">
       <input type="text" name="name" placeholder="name" />
       <input type="text" name="email" placeholder="email" />
       <input type="text" name="message" placeholder="message" />
       <div class="button-Send">
-        <button type="submit" value="send" />
+        <input type="submit" value="send" />
         <div
           class="button-Send_Arrow hovered"
           v-html="require('~/assets/images/arrow-right.svg?include')"
         />
       </div>
-    </form> -->
+    </form>
 
-    <form name="contact" method="POST" data-netlify="true">
+    <!-- <form name="contact" method="POST" data-netlify="true">
       <p>
         <label>Your Name: <input type="text" name="name"/></label>
       </p>
@@ -36,7 +36,7 @@
       <p>
         <button type="submit">Send</button>
       </p>
-    </form>
+    </form> -->
     <nuxt-link to="/" tag="div" class="close hovered">
       <!-- prettier-ignore -->
       <div class="close-Icon" v-html="require('~/assets/images/close.svg?include')" />
