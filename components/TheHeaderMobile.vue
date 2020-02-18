@@ -26,9 +26,21 @@
 <script>
 export default {
   name: "TheHeader",
+  mounted() {
+    document.addEventListener("keydown", this.backOnEscape)
+  },
+  destroyed() {
+    document.removeEventListener("keydown", this.backOnEscape)
+  },
   methods: {
     onClick() {
       this.$emit("clicked")
+    },
+    backOnEscape(event) {
+      if (event.keyCode === 27) {
+        console.log("TOGGLED")
+        this.$emit("clicked")
+      }
     }
   }
 }
