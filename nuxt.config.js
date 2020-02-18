@@ -30,7 +30,27 @@ module.exports = {
       },
       { hid: "description", name: "description", content: pkg.description }
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
+    link: [
+      {
+        rel: "apple-touch-icon",
+        sizes: "180x180",
+        href: "/apple-touch-icon.png"
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "32x32",
+        href: "/favicon-32x32.png"
+      },
+      {
+        rel: "icon",
+        id: "favicon",
+        type: "image/png",
+        sizes: "16x16",
+        href: "/0.png"
+      },
+      { rel: "manifest", href: "/site.webmanifest" }
+    ]
   },
 
   /*
