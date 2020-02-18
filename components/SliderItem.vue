@@ -6,11 +6,11 @@
         <picture class="image">
           <source
             type="image/webp"
-            :srcset="currentImage | transformImage('1680x0/filters:format(webp)')"
+            :srcset="currentImage | transformImage('filters:format(webp)')"
           />
           <source
             type="image/png"
-            :srcset="currentImage | transformImage( '1680x0/filters:format(png)')"
+            :srcset="currentImage | transformImage( 'filters:format(png)')"
           />
           <img
             loading="lazy"

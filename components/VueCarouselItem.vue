@@ -14,7 +14,17 @@
           v-for="(image, index) in images"
           :key="index"
         >
-          <img :src="image.filename" :alt="image.name" />
+          <picture>
+            <source
+              type="image/webp"
+              :srcset="transformImage(image.filename, 'filters:format(webp)')"
+            />
+            <source
+              type="image/png"
+              :srcset="transformImage(image.filename, 'filters:format(png)')"
+            />
+            <img :src="image.filename" :alt="image.name" />
+          </picture>
         </slide>
       </carousel>
     </NoSsr>
@@ -83,6 +93,14 @@ export default {
     document.removeEventListener("touchmove", this.iconChange)
   },
   methods: {
+    transformImage(image, option) {
+      if (!image) return ""
+      if (!option) return ""
+
+      let imageService = "//img2.storyblok.com/"
+      let path = image.replace("//a.storyblok.com", "")
+      return imageService + option + path
+    },
     iconChange() {
       const carousel = this.$refs["vueCarouselItem"]
       const currentPage = carousel.currentPage
@@ -142,7 +160,7 @@ export default {
       position: relative
       height: 100% !important // Override dep default
   &-Slide
-    img
+    picture, img
       width: 100%
       height: 100%
       max-width: 100%
