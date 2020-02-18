@@ -62,7 +62,6 @@ export default {
   mounted() {
     this.measureHeight()
     this.removeChangeCursor()
-    console.log(this.story.content)
     window.addEventListener("resize", this.measureHeight)
     window.addEventListener("scroll", this.getSlideshowPosition)
     $(".hovered").on("mouseover", this.changeCursor)

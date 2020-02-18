@@ -9,11 +9,8 @@
         :paginationEnabled="false"
         :speed="190"
       >
-        <slide
-          class="carousel-Slide"
-          v-for="(image, index) in images"
-          :key="index"
-        >
+        <!-- prettier-ignore -->
+        <slide v-for="(image, index) in images" :key="index" class="carousel-Slide">
           <picture>
             <source
               type="image/webp"
@@ -27,10 +24,7 @@
                 transformImage(image.filename, '2880x0/filters:format(png)')
               "
             />
-            <img
-              :src="transformImage(image.filename, '2880x0')"
-              :alt="image.name"
-            />
+            <img :src="transformImage(image.filename, '2880x0')" :alt="image.name" />
           </picture>
         </slide>
       </carousel>
@@ -53,15 +47,15 @@
         :class="{ active: iconPrev }"
         @click="SlideCarousel('prev')"
       >
-        <img src="~/assets/images/arrow-medium.svg"
-      /></a>
+        <img src="~/assets/images/arrow-medium.svg" />
+      </a>
       <a
         class="carousel-Mobile_Nav carousel-Mobile_Nav_Next"
         :class="{ active: iconNext }"
         @click="SlideCarousel('next')"
       >
-        <img src="~/assets/images/arrow-medium.svg"
-      /></a>
+        <img src="~/assets/images/arrow-medium.svg" />
+      </a>
     </div>
   </div>
 </template>
