@@ -18,17 +18,17 @@
             <source
               type="image/webp"
               :srcset="
-                transformImage(image.filename, '1920x0/filters:format(webp)')
+                transformImage(image.filename, '2880x0/filters:format(webp)')
               "
             />
             <source
               type="image/png"
               :srcset="
-                transformImage(image.filename, '1920x0/filters:format(png)')
+                transformImage(image.filename, '2880x0/filters:format(png)')
               "
             />
             <img
-              :src="transformImage(image.filename, '1920x0')"
+              :src="transformImage(image.filename, '2880x0')"
               :alt="image.name"
             />
           </picture>

@@ -19,13 +19,13 @@
           <picture class="image">
             <source
               type="image/webp"
-              :srcset="post.content.cover_image | transformImage('960x0/filters:format(webp)')"
+              :srcset="post.content.cover_image | transformImage('1440x0/filters:format(webp)')"
             />
             <source
               type="image/png"
-              :srcset="post.content.cover_image | transformImage( '960x0/filters:format(png)')"
+              :srcset="post.content.cover_image | transformImage( '1440x0/filters:format(png)')"
             />
-            <img :data-src="post.content.cover_image | transformImage('960x0')" />
+            <img :data-src="post.content.cover_image | transformImage('1440x0')" />
           </picture>
         </li>
       </ul>
