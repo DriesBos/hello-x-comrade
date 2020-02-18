@@ -50,3 +50,14 @@ export default {
   }
 }
 </script>
+
+<style lang="sass">
+@import '~/assets/styles/variables.sass'
+
+.header-Toggle
+  mix-blend-mode: difference
+  @media screen and ( min-width: $breakpoint-tablet)
+    display: none
+  li
+    padding: var(--side-padding)
+</style>

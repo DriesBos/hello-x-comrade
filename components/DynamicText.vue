@@ -11,3 +11,10 @@ export default {
   }
 }
 </script>
+<style lang="sass" scoped>
+@import '~/assets/styles/variables.sass'
+
+.dynamic-Text
+  padding-left: var(--side-padding)
+  padding-right: var(--side-padding)
+</style>

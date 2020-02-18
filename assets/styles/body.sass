@@ -23,70 +23,6 @@ main
   top: 0
   right: 0
   z-index: 999
-  &-Desktop
-    left: 0
-    mix-blend-mode: difference
-    transform: translate3d(0, -101%, 0)
-    transition: transform $transition-desktop
-    will-change: transform
-    @media screen and ( max-width: $breakpoint-tablet)
-      display: none
-    &.toggle
-      transform: translate3d(0, 0, 0)
-    nav
-      display: flex
-      justify-content: space-between
-      align-items: flex-end
-      margin-left: var(--side-padding)
-      margin-right: var(--side-padding)
-      padding-top: var(--spacing-two)
-      padding-bottom: var(--spacing-one)
-      border-bottom: var(--border-bottom)
-      ul
-        li
-          margin-right: 2em
-          display: inline-block
-          @media screen and ( max-width: $breakpoint-tablet)
-            margin-right: 1.6em
-        li:last-child
-          padding-right: 0
-      .logo
-        height: 2.2em
-  &-Toggle
-    mix-blend-mode: difference
-    @media screen and ( min-width: $breakpoint-tablet)
-      display: none
-    li
-      padding: var(--side-padding)
-  &-Mobile
-    top: -1px
-    left: 0
-    right: 0
-    bottom: 0
-    padding-top: var(--top-padding)
-    padding-left: var(--side-padding)
-    padding-right: var(--side-padding)
-    padding-bottom: var(--bottom-padding)
-    background-color: white
-    color: black
-    border-top: 1px solid white
-    overflow-y: auto
-    h1, h2, h3, p, a
-      color: black
-    ul
-      position: relative
-      width: 100%
-      display: block
-      height: 100%
-      display: flex
-      flex-direction: column
-      li:first-child
-        margin-top: auto // Pushes content down
-      h1
-        line-height: 1.5
-        display: inline
-    @media screen and ( min-width: $breakpoint-tablet)
-      display: none
 
 .cursor
   position: fixed
@@ -126,10 +62,6 @@ main
 
 .hovered
   cursor: none
-
-.dynamic-Text
-  padding-left: var(--side-padding)
-  padding-right: var(--side-padding)
 
 .close
   position: fixed
@@ -252,12 +184,6 @@ main
           margin-top: 1em
       h1
         text-transform: lowercase
-    &_Slider
-      position: absolute
-      width: 100%
-      height: 100vh
-      > div
-        height: 100%
   &-About
     margin-top: var(--top-padding)
     padding-left: var(--side-padding)
@@ -317,7 +243,6 @@ main
           flex-shrink: 0
           @media screen and ( max-width: $breakpoint-mobile)
             margin-top: var(--spacing-one)
-
   &-Contact
     margin-top: var(--top-padding)
     margin-left: var(--side-padding)
