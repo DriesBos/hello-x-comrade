@@ -6,7 +6,7 @@
         class="carousel-Container"
         :per-page="1"
         :mouse-drag="false"
-        :paginationEnabled="false"
+        :pagination-enabled="false"
         :speed="190"
       >
         <!-- prettier-ignore -->
