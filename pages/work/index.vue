@@ -83,11 +83,11 @@ export default {
     window.scrollTo(0, 0)
     this.arrayLoop(this.stories)
     this.assignData()
-    $(".hovered").on("mouseover", this.changeCursor)
+    $(".hovered").on("mouseenter", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
   },
   destroyed() {
-    $(".hovered").off("mouseover", this.changeCursor)
+    $(".hovered").off("mouseenter", this.changeCursor)
     $(".hovered").off("mouseleave", this.removeChangeCursor)
   },
   methods: {
