@@ -61,6 +61,11 @@
 </template>
 
 <script>
+// SIZES WORK LIST: 1668, 1440, 1280, 960, 800, 690
+// WIDTHS DESK: 2880/1440, 2560/1280, 1920/960, 1366/683
+// WIDTHS TABLET: 1668/834, 1280/640, 1024/512, 800/400
+// Widths Mobile: 900, 640,
+
 import JQuery from "jquery"
 let $ = JQuery
 

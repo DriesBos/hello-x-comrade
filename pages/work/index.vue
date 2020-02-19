@@ -17,15 +17,20 @@
             <p class="content-Work_Year">&nbsp;/{{ post.content.year }}&nbsp;</p>
           </nuxt-link>
           <picture class="image">
-            <source
+            <img
+              :srcset="`${transformImage(post.content.cover_image, '1668x0')} 1668w, ${transformImage(post.content.cover_image, '1440x0')} 1440w, ${transformImage(post.content.cover_image, '1280x0')} 1280w, ${transformImage(post.content.cover_image, '960x0')} 960w, ${transformImage(post.content.cover_image, '800x0')} 800w, ${transformImage(post.content.cover_image, '690x0')} 690w`"
+              sizes="(max-width: 1025px) 50vw, (min-width: 1025px) 100vw"
+              :data-src="post.content.cover_image | transformImage('1668x0')"
+            />
+            <!-- <source
               type="image/webp"
-              :srcset="post.content.cover_image | transformImage('1440x0/filters:format(webp)')"
+              :srcset="post.content.cover_image | transformImage( '1440x0/filters:format(webp)')"
             />
             <source
               type="image/png"
               :srcset="post.content.cover_image | transformImage( '1440x0/filters:format(png)')"
-            />
-            <img :data-src="post.content.cover_image | transformImage('1440x0')" />
+            />-->
+            <!-- <img :data-src="post.content.cover_image | transformImage('0x0')" /> -->
           </picture>
         </li>
       </ul>
@@ -86,6 +91,14 @@ export default {
     $(".hovered").off("mouseleave", this.removeChangeCursor)
   },
   methods: {
+    transformImage(image, option) {
+      if (!image) return ""
+      if (!option) return ""
+
+      let imageService = "//img2.storyblok.com/"
+      let path = image.replace("//a.storyblok.com", "")
+      return imageService + option + path
+    },
     arrayLoop(array) {
       this.projects = array.filter(function(el) {
         if (el.content.component === "page-project") {
