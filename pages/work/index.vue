@@ -16,11 +16,13 @@
             </h1>
             <p class="content-Work_Year">&nbsp;/{{ post.content.year }}&nbsp;</p>
           </nuxt-link>
+          <!-- View variables.sass for srcset widths source -->
           <picture class="image">
             <img
               :srcset="`${transformImage(post.content.cover_image, '1668x0')} 1668w, ${transformImage(post.content.cover_image, '1440x0')} 1440w, ${transformImage(post.content.cover_image, '1280x0')} 1280w, ${transformImage(post.content.cover_image, '960x0')} 960w, ${transformImage(post.content.cover_image, '800x0')} 800w, ${transformImage(post.content.cover_image, '690x0')} 690w`"
               sizes="(max-width: 1025px) 50vw, (min-width: 1025px) 100vw"
               :data-src="post.content.cover_image | transformImage('1668x0')"
+              alt="Project image"
             />
             <!-- <source
               type="image/webp"

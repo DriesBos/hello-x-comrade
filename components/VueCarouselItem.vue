@@ -11,8 +11,15 @@
       >
         <!-- prettier-ignore -->
         <slide v-for="(image, index) in images" :key="index" class="carousel-Slide">
+          <!-- View variables.sass for srcset widths source -->
           <picture>
-            <source
+            <img
+              :srcset="`${transformImage(image.filename, '2880x0')} 2880w, ${transformImage(image.filename, '2560x0')} 2560w, ${transformImage(image.filename, '1920x0')} 1920w, ${transformImage(image.filename, '1680x0')} 1680w, ${transformImage(image.filename, '1370x0')} 1370w, ${transformImage(image.filename, '900x0')} 900w`"
+              sizes="(max-width: 1025px) 100vw, (min-width: 1025px) 100vw"
+              :data-src="image.filename | transformImage('1440x0')"
+              :alt="image.name"
+            />
+            <!-- <source
               type="image/webp"
               :srcset="
                 transformImage(image.filename, '2880x0/filters:format(webp)')
@@ -24,7 +31,7 @@
                 transformImage(image.filename, '2880x0/filters:format(png)')
               "
             />
-            <img :src="transformImage(image.filename, '2880x0')" :alt="image.name" />
+            <img :src="transformImage(image.filename, '2880x0')" :alt="image.name" />-->
           </picture>
         </slide>
       </carousel>
@@ -61,11 +68,6 @@
 </template>
 
 <script>
-// SIZES WORK LIST: 1668, 1440, 1280, 960, 800, 690
-// WIDTHS DESK: 2880/1440, 2560/1280, 1920/960, 1366/683
-// WIDTHS TABLET: 1668/834, 1280/640, 1024/512, 800/400
-// Widths Mobile: 900, 640,
-
 import JQuery from "jquery"
 let $ = JQuery
 
