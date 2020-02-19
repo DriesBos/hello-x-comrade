@@ -4,7 +4,7 @@
     <form
       name="contact"
       method="post"
-      action="/succes"
+      action="/success"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
     >
