@@ -3,7 +3,11 @@
     <the-header :class="{ toggle: showHeader, isClose: showClose }" />
     <!-- prettier-ignore -->
     <transition name="headerMobileContent">
-      <the-header-mobile v-show="showHeaderMobile" @clicked="toggleHeaderMobile" />
+      <the-header-mobile
+        v-show="showHeaderMobile"
+        @clicked="toggleHeaderMobile"
+        @escaped="closeHeaderMobile"
+      />
     </transition>
     <!-- prettier-ignore -->
     <the-header-toggle :toggled="showHeaderMobile" @clicked="toggleHeaderMobile" />
@@ -74,6 +78,9 @@ export default {
   methods: {
     toggleHeaderMobile() {
       this.showHeaderMobile = !this.showHeaderMobile
+    },
+    closeHeaderMobile() {
+      this.showHeaderMobile = false
     },
     customCursor() {
       let $cursor = $(".cursor")
