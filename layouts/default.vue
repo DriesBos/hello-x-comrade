@@ -78,7 +78,7 @@ export default {
     customCursor() {
       let $cursor = $(".cursor")
       function moveCursor(e) {
-        gsap.to($cursor, 0.1, {
+        gsap.to($cursor, 0, {
           left: e.clientX,
           top: e.clientY
         })
