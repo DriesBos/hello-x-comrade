@@ -1,6 +1,7 @@
 <template>
   <section v-editable="blok" class="content-Contact">
     <markdown-item :input="blok.text" />
+    <!-- prettier-ignore -->
     <form
       name="contact"
       method="post"
@@ -9,9 +10,9 @@
       data-netlify-honeypot="bot-field"
     >
       <input type="hidden" name="form-name" value="contact" />
-      <input class="hovered" type="text" name="name" placeholder="name" />
-      <input class="hovered" type="text" name="email" placeholder="email" />
-      <input class="hovered" type="text" name="message" placeholder="message" />
+      <input class="hovered" type="text" required name="name" placeholder="name" />
+      <input class="hovered" type="text" required name="email" placeholder="email" />
+      <input class="hovered" type="text" required name="message" placeholder="message" />
       <div class="button-Send">
         <input class="hovered" type="submit" value="send" />
         <div
