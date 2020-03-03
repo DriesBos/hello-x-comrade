@@ -107,19 +107,15 @@ module.exports = {
       const per_page = 100
       const version = "draft"
       let cache_version = 0
-
       let page = 1
-
       // other routes that are not in Storyblok with their slug.
       let routes = ["/"] // adds home directly but with / instead of /home
-
       // Load space and receive latest cache version key to improve performance
       axios
         .get(`https://api.storyblok.com/v1/cdn/spaces/me?token=${token}`)
         .then(space_res => {
           // timestamp of latest publish
           cache_version = space_res.data.space.version
-
           // Call first Page of the Stories
           axios
             .get(
@@ -131,7 +127,6 @@ module.exports = {
                   routes.push("/" + story.full_slug)
                 }
               })
-
               // Check if there are more pages available otherwise execute callback with current routes.
               const total = res.headers.total
               const maxPage = Math.ceil(total / per_page)
@@ -139,7 +134,6 @@ module.exports = {
                 callback(null, routes)
                 return
               }
-
               // Since we know the total we now can pregenerate all requests we need to get all stories
               let contentRequests = []
               for (let page = 2; page <= maxPage; page++) {
@@ -149,7 +143,6 @@ module.exports = {
                   )
                 )
               }
-
               // Axios allows us to exectue all requests using axios.spread we will than generate our routes and execute the callback
               axios
                 .all(contentRequests)
@@ -162,7 +155,6 @@ module.exports = {
                         }
                       })
                     })
-
                     callback(null, routes)
                   })
                 )
