@@ -1,11 +1,11 @@
 /*!
-  * vue-router v3.1.5
+  * vue-router v3.1.6
   * (c) 2020 Evan You
   * @license MIT
   */
 
 /*!
- * CSSPlugin 3.1.1
+ * CSSPlugin 3.2.4
  * https://greensock.com
  *
  * Copyright 2008-2020, GreenSock. All rights reserved.
@@ -15,7 +15,7 @@
 */
 
 /*!
- * GSAP 3.1.1
+ * GSAP 3.2.4
  * https://greensock.com
  *
  * @license Copyright 2008-2020, GreenSock. All rights reserved.
