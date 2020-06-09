@@ -19,20 +19,11 @@
           <!-- View variables.sass for srcset widths source -->
           <picture class="image">
             <img
-              :srcset="`${transformImage(post.content.cover_image, '1668x0')} 1668w, ${transformImage(post.content.cover_image, '1440x0')} 1440w, ${transformImage(post.content.cover_image, '1280x0')} 1280w, ${transformImage(post.content.cover_image, '960x0')} 960w, ${transformImage(post.content.cover_image, '800x0')} 800w, ${transformImage(post.content.cover_image, '690x0')} 690w`"
+              :srcset="`${transformImage(post.content.cover_image, '1668x0/filters:format(jpg):quality(65)')} 1668w, ${transformImage(post.content.cover_image, '1440x0/filters:format(jpg):quality(65)')} 1440w, ${transformImage(post.content.cover_image, '1280x0/filters:format(jpg):quality(65)')} 1280w, ${transformImage(post.content.cover_image, '960x0/filters:format(jpg):quality(65)')} 960w, ${transformImage(post.content.cover_image, '800x0/filters:format(jpg):quality(65)')} 800w, ${transformImage(post.content.cover_image, '690x0/filters:format(jpg):quality(65)')} 690w`"
               sizes="(max-width: 1025px) 50vw, (min-width: 1025px) 100vw"
-              :data-src="post.content.cover_image | transformImage('1668x0')"
+              :data-src="post.content.cover_image | transformImage('1668x0/filters:format(jpg):quality(65)')"
               alt="Project image"
             />
-            <!-- <source
-              type="image/webp"
-              :srcset="post.content.cover_image | transformImage( '1440x0/filters:format(webp)')"
-            />
-            <source
-              type="image/png"
-              :srcset="post.content.cover_image | transformImage( '1440x0/filters:format(png)')"
-            />-->
-            <!-- <img :data-src="post.content.cover_image | transformImage('0x0')" /> -->
           </picture>
         </li>
       </ul>
@@ -82,6 +73,7 @@ export default {
     }
   },
   mounted() {
+    console.log(this.projects[0])
     window.scrollTo(0, 0)
     this.arrayLoop(this.stories)
     this.assignData()
