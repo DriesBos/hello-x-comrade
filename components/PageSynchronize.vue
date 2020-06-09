@@ -32,16 +32,46 @@ export default {
   },
   methods: {
     setAmsterdamTime() {
-      let date = new Date()
-      let offset = date.getTime() + date.getTimezoneOffset() * 60000
-      let amsTime = new Date(offset + 3600000 * 1)
-      this.timeAMS =
-        (amsTime.getHours() < 10 ? "0" : "") +
-        amsTime.getHours() +
-        ":" +
-        (amsTime.getMinutes() < 10 ? "0" : "") +
-        amsTime.getMinutes()
+      Date.prototype.stdTimezoneOffset = function() {
+        var jan = new Date(this.getFullYear(), 6, 1)
+        var jul = new Date(this.getFullYear(), 0, 1)
+        return Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset())
+      }
+      Date.prototype.isDstObserved = function() {
+        return this.getTimezoneOffset() < this.stdTimezoneOffset()
+      }
+      var date = new Date()
+      if (date.isDstObserved()) {
+        let offset = date.getTime() + date.getTimezoneOffset() * 60000
+        let amsTime = new Date(offset + 3600000 * 2)
+        this.timeAMS =
+          (amsTime.getHours() < 10 ? "0" : "") +
+          amsTime.getHours() +
+          ":" +
+          (amsTime.getMinutes() < 10 ? "0" : "") +
+          amsTime.getMinutes()
+      } else {
+        let offset = date.getTime() + date.getTimezoneOffset() * 60000
+        let amsTime = new Date(offset + 3600000 * 1)
+        this.timeAMS =
+          (amsTime.getHours() < 10 ? "0" : "") +
+          amsTime.getHours() +
+          ":" +
+          (amsTime.getMinutes() < 10 ? "0" : "") +
+          amsTime.getMinutes()
+      }
     },
+    // setAmsterdamTime() {
+    //   let date = new Date()
+    //   let offset = date.getTime() + date.getTimezoneOffset() * 60000
+    //   let amsTime = new Date(offset + 3600000 * 1)
+    //   this.timeAMS =
+    //     (amsTime.getHours() < 10 ? "0" : "") +
+    //     amsTime.getHours() +
+    //     ":" +
+    //     (amsTime.getMinutes() < 10 ? "0" : "") +
+    //     amsTime.getMinutes()
+    // },
     setLocalTime() {
       let date = new Date()
       this.timeLocal =
