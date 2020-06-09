@@ -19,19 +19,6 @@
               :data-src="image.filename | transformImage('1440x0')"
               :alt="image.name"
             />
-            <!-- <source
-              type="image/webp"
-              :srcset="
-                transformImage(image.filename, '2880x0/filters:format(webp)')
-              "
-            />
-            <source
-              type="image/png"
-              :srcset="
-                transformImage(image.filename, '2880x0/filters:format(png)')
-              "
-            />
-            <img :src="transformImage(image.filename, '2880x0')" :alt="image.name" />-->
           </picture>
         </slide>
       </carousel>
@@ -178,12 +165,12 @@ export default {
       height: 100% !important // Override dep default
   &-Slide
     picture, img
-      width: 100%
-      height: 100%
-      max-width: 100%
-      max-height: 100%
-      object-fit: cover
-      object-position: center center
+    width: 100%
+    height: 100%
+    max-width: 100%
+    max-height: 100%
+    object-fit: cover
+    object-position: center center
   &-Nav
     position: absolute
     top: 0
