@@ -39,9 +39,11 @@ let $ = JQuery
 export default {
   mixins: [storyblokLivePreview],
   asyncData(context) {
+    let version =
+      context.query._storyblok || context.isDev ? "draft" : "published"
     return context.app.$storyapi
       .get("cdn/stories/", {
-        version: "draft",
+        version: version,
         starts_with: "work"
       })
       .then(res => {
