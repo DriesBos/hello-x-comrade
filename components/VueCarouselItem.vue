@@ -164,13 +164,13 @@ export default {
       position: relative
       height: 100% !important // Override dep default
   &-Slide
-    picture, img
-    width: 100%
-    height: 100%
-    max-width: 100%
-    max-height: 100%
-    object-fit: cover
-    object-position: center center
+    img
+      width: 100%
+      height: 100%
+      max-width: 100%
+      max-height: 100%
+      object-fit: cover
+      object-position: center center
   &-Nav
     position: absolute
     top: 0
