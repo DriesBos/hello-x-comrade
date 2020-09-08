@@ -1,28 +1,32 @@
 <template>
   <div>
-    <client-only>
-      <carousel
-        ref="vueCarouselItem"
-        class="carousel-Container"
-        :per-page="1"
-        :mouse-drag="false"
-        :pagination-enabled="false"
-        :speed="190"
-      >
-        <!-- prettier-ignore -->
-        <slide v-for="(image, index) in images" :key="index" class="carousel-Slide">
+    <carousel
+      ref="vueCarouselItem"
+      class="carousel-Container"
+      :per-page="1"
+      :mouse-drag="false"
+      :pagination-enabled="false"
+      :speed="190"
+    >
+      <!-- prettier-ignore -->
+      <slide v-for="(image, index) in images" :key="index" class="carousel-Slide">
           <!-- View variables.sass for srcset widths source -->
           <picture>
             <img
-              :srcset="`${transformImage(image.filename, '2880x0')} 2880w, ${transformImage(image.filename, '2560x0')} 2560w, ${transformImage(image.filename, '1920x0')} 1920w, ${transformImage(image.filename, '1680x0')} 1680w, ${transformImage(image.filename, '1370x0')} 1370w, ${transformImage(image.filename, '900x0')} 900w`"
+              :srcset="`
+              ${transformImage(image.filename, '2880x0')} 2880w, 
+              ${transformImage(image.filename, '2560x0')} 2560w, 
+              ${transformImage(image.filename, '1920x0')} 1920w, 
+              ${transformImage(image.filename, '1680x0')} 1680w, 
+              ${transformImage(image.filename, '1370x0')} 1370w, 
+              ${transformImage(image.filename, '900x0')} 900w`"
               sizes="(max-width: 1025px) 100vw, (min-width: 1025px) 100vw"
-              :data-src="image.filename | transformImage('1440x0')"
+              :data-src="`${transformImage(image.filename, '1440x0')}`"
               :alt="image.name"
             />
           </picture>
         </slide>
-      </carousel>
-    </client-only>
+    </carousel>
     <div class="carousel-Navigation">
       <a
         class="carousel-Nav carousel-Nav_Prev"
@@ -78,6 +82,7 @@ export default {
     document.addEventListener("touchstart", this.iconChange)
     document.addEventListener("touchmove", this.iconChange)
     document.addEventListener("keydown", this.keyNavigation)
+    // console.log("CAROUSEL", this.images, typeof this.images)
   },
   destroyed() {
     $(".carousel-Nav_Prev").off("mouseenter", this.changeCursorToPrev)
@@ -100,10 +105,16 @@ export default {
     transformImage(image, option) {
       if (!image) return ""
       if (!option) return ""
-
       let imageService = "//img2.storyblok.com/"
-      let path = image.replace("//a.storyblok.com", "")
-      return imageService + option + path
+      let pathOne = image.replace("https://a.storyblok.com", "")
+      let pathTwo = pathOne.replace("//a.storyblok.com", "")
+      // console.log("IMAGE", image, typeof image)
+      // console.log("IMAGESERVICE", imageService)
+      // console.log("OPTION", option)
+      // console.log("PATH", pathTwo)
+      // console.log("FINAL", imageService + option + pathTwo)
+      // console.log("------------")
+      return imageService + option + pathTwo
     },
     iconChange() {
       const carousel = this.$refs["vueCarouselItem"]

@@ -8,8 +8,10 @@
       </div>
       <!-- prettier-ignore -->
       <div id="worksingle-Slider" class="content-Worksingle_Slider slider-blok">
-        <vue-carousel-item class="horizontal" :images="story.content.images" />
-        <vue-carousel-item class="vertical" :images="story.content.images_mobile" />
+        <client-only>
+          <vue-carousel-item class="horizontal" :images="story.content.images" />
+          <vue-carousel-item class="vertical" :images="story.content.images_mobile" />
+        </client-only>
       </div>
     </section>
     <nuxt-link to="/work" tag="div" class="close hovered">
@@ -69,6 +71,7 @@ export default {
     document.addEventListener("keydown", this.backOnEscape)
     $(".hovered").on("mouseenter", this.changeCursor)
     $(".hovered").on("mouseleave", this.removeChangeCursor)
+    // console.log("WORK SLUG", this.story)
   },
   destroyed() {
     window.removeEventListener("resize", this.measureHeight)
@@ -90,6 +93,7 @@ export default {
       const element = document.getElementById("worksingle-Text")
       const image = document.getElementById("worksingle-Slider")
       const height = element.offsetHeight
+      // console.log("MEASUREHEIGHT", element, image, height)
       image.style.marginTop = `${height}px`
     },
     changeCursor() {

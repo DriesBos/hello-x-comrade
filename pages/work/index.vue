@@ -75,7 +75,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.projects[0])
+    // console.log(this.projects[0])
     window.scrollTo(0, 0)
     this.arrayLoop(this.stories)
     this.assignData()
