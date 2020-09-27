@@ -16,7 +16,21 @@
           <div class="content-About_Contactblok">
             <markdown-item :input="blok.blok_3_text" />
             <span>&nbsp;/&nbsp;</span>
-            <nuxt-link to="/contact" tag="a">Contact</nuxt-link>
+            <nuxt-link to="/contact" tag="a" class="hovered">Contact</nuxt-link>
+          </div>
+        </div>
+        <div class="blok blok-five">
+          <h1>Colophon</h1>
+          <div class="content-About_Contactblok">
+            <p>Site Developed by&nbsp;</p>
+            <a
+              href="https://www.driesbos.com"
+              target="_blank"
+              title="Site by Dries Bos"
+              rel="noreferrer"
+              class="hovered"
+              >Dries Bos</a
+            >
           </div>
         </div>
       </div>
