@@ -26,7 +26,7 @@
             <a
               href="https://www.driesbos.com"
               target="_blank"
-              title="Site by Dries Bos"
+              title="Site developed by Dries Bos"
               rel="noreferrer"
               class="hovered"
               >Dries Bos</a
