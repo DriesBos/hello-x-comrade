@@ -20,9 +20,9 @@
           </div>
         </div>
         <div class="blok blok-five">
-          <h1>Colophon</h1>
+          <h1>colophon</h1>
           <div class="content-About_Contactblok">
-            <p>Site Developed by&nbsp;</p>
+            <p>Site developed by&nbsp;</p>
             <a
               href="https://www.driesbos.com"
               target="_blank"
