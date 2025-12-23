@@ -1,0 +1,4 @@
+# Block all robots from indexing this site
+User-agent: *
+Disallow: /
+
